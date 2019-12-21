@@ -1,4 +1,8 @@
+Amazon RDS
+stbn200 o54HvLsKse6Npb3w75at
+
 20191221 
 Support 
 https://www.youtube.com/watch?v=22DVuSmQpNw Create POS Database 
-https://www.youtube.com/watch?v=Ej3A94uNp9I Amazon RDS, crear instancia y conectar con SQL Server 2014  
+https://www.youtube.com/watch?v=Ej3A94uNp9I Amazon RDS, crear instancia y conectar con SQL Server 2014 
+ 
