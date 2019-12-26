@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "posdb", "posdb\posdb.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "posrepository", "posrepository\posrepository.csproj", "{7B427DBF-8256-4B91-85F9-A3CF2AAF9AC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "posUnitTest", "posUnitTest\posUnitTest.csproj", "{1B1E1580-CAFE-406E-82F6-403BA99B06D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7B427DBF-8256-4B91-85F9-A3CF2AAF9AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B427DBF-8256-4B91-85F9-A3CF2AAF9AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B427DBF-8256-4B91-85F9-A3CF2AAF9AC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B1E1580-CAFE-406E-82F6-403BA99B06D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B1E1580-CAFE-406E-82F6-403BA99B06D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B1E1580-CAFE-406E-82F6-403BA99B06D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B1E1580-CAFE-406E-82F6-403BA99B06D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,2 @@
+2019-12-26 01:08:25.5825 posrepository.ProductsRepository No connection string named 'posedb' could be found in the application config file. 
+2019-12-26 01:08:25.5825 posrepository.ProductsRepository No connection string named 'posedb' could be found in the application config file. 
