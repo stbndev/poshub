@@ -22,3 +22,6 @@ C:\GitHub\poshub\code\backend\services\posservices\posUnitTest\obj\Debug\posUnit
 C:\GitHub\poshub\code\backend\services\posservices\posUnitTest\obj\Debug\posUnitTest.csproj.CopyComplete
 C:\GitHub\poshub\code\backend\services\posservices\posUnitTest\obj\Debug\posUnitTest.dll
 C:\GitHub\poshub\code\backend\services\posservices\posUnitTest\obj\Debug\posUnitTest.pdb
+C:\GitHub\poshub\code\backend\services\posservices\posUnitTest\bin\Debug\posUnitTest.dll.config
+C:\GitHub\poshub\code\backend\services\posservices\posUnitTest\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitHub\poshub\code\backend\services\posservices\posUnitTest\bin\Debug\EntityFramework.SqlServer.xml

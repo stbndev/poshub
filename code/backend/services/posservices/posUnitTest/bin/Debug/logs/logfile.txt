@@ -1,2 +1,13 @@
 2019-12-26 01:08:25.5825 posrepository.ProductsRepository No connection string named 'posedb' could be found in the application config file. 
 2019-12-26 01:08:25.5825 posrepository.ProductsRepository No connection string named 'posedb' could be found in the application config file. 
+2019-12-26 21:26:50.3498 posrepository.ProductsRepository No connection string named 'posContext' could be found in the application config file. 
+2019-12-26 21:26:50.3498 posrepository.ProductsRepository No connection string named 'posContext' could be found in the application config file. 
+2019-12-26 21:26:50.8445 posrepository.ProductsRepository No connection string named 'posContext' could be found in the application config file. 
+2019-12-26 21:26:50.8445 posrepository.ProductsRepository No connection string named 'posContext' could be found in the application config file. 
+2019-12-26 21:27:53.8381 posrepository.ProductsRepository No connection string named 'posContext' could be found in the application config file. 
+2019-12-26 21:27:53.8381 posrepository.ProductsRepository No connection string named 'posContext' could be found in the application config file. 
+2019-12-26 21:30:14.1173 posrepository.ProductsRepository No connection string named 'posContext' could be found in the application config file. 
+2019-12-26 21:30:14.1173 posrepository.ProductsRepository No connection string named 'posContext' could be found in the application config file. 
+2019-12-26 21:34:49.2954 posrepository.ProductsRepository No connection string named 'posContext' could be found in the application config file. 
+2019-12-26 21:34:49.2954 posrepository.ProductsRepository No connection string named 'posContext' could be found in the application config file. 
+2019-12-26 23:00:47.8113 posrepository.ProductsRepository 7503020501623 

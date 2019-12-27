@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using posdb;
+using System.Data.Entity;
 
 namespace posrepository
 {
-    public interface IProducts 
+    public interface IProducts
     {
-        PRODUCT GetById(int id);
-        
+        // PRODUCT GetById(int id);
         PRODUCT Create(PRODUCT product);
-        List<PRODUCT> Read();
+        List<PRODUCT> Read(int id = 0, string barcode = "", int idcstatus = -100, decimal price = -100, decimal cost = -100, int existence = -100, bool all = false);
         PRODUCT Update(PRODUCT product);
         PRODUCT Delete(PRODUCT product);
     }
@@ -23,7 +23,29 @@ namespace posrepository
 
         public PRODUCT Create(PRODUCT product)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var context = new posContext())
+                {
+                    // check if no exist barcode 
+                    var checkExist = Read(barcode: product.barcode);
+
+                    if (checkExist.Count() > 0)
+                    {
+                        Logger.Info(product.barcode, "barcode unavailable");
+                    }
+                    else
+                    {
+                        context.Entry(product).State = EntityState.Added;
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.Message);
+            }
+            return product;
         }
 
         public PRODUCT Delete(PRODUCT product)
@@ -31,27 +53,31 @@ namespace posrepository
             throw new NotImplementedException();
         }
 
-        public PRODUCT GetById(int id)
+
+
+        public List<PRODUCT> Read(int id = 0, string barcode = "", int idcstatus = -100, decimal price = -100, decimal cost = -100, int existence = -100, bool all = false)
         {
-            var item = new PRODUCT();
+            List<PRODUCT> listProducts = new List<PRODUCT>();
             try
             {
-                using (var context = new posedb())
+                using (var context = new posContext())
                 {
-                    item = context.PRODUCTS.Where(x => x.id == id).FirstOrDefault();
+                    // filters 
+                    if (all)
+                    {
+                        listProducts = context.PRODUCTS.ToList();
+                    }
+                    else if (!string.IsNullOrEmpty(barcode))
+                    {
+                        listProducts = context.PRODUCTS.Where(x => x.barcode == barcode).ToList();
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Logger.Error(ex.Message);
-                Logger.Error(ex.InnerException.Message);
             }
-            return item;
-        }
-
-        public List<PRODUCT> Read()
-        {
-            throw new NotImplementedException();
+            return listProducts;
         }
 
         public PRODUCT Update(PRODUCT product)
