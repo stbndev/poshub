@@ -32,7 +32,12 @@ namespace posrepository
 
                     if (checkExist.Count() > 0)
                     {
-                        Logger.Info(product.barcode, "barcode unavailable");
+                        Logger.Debug("{0} barcode unavailable ", product.barcode);
+                        Logger.Info ("{0} barcode unavailable ",product.barcode);
+                        Logger.Warn ("{0} barcode unavailable ",product.barcode);
+                        Logger.Error("{0} barcode unavailable ",product.barcode);
+                        product.id = 0;
+                        //return new PRODUCT();
                     }
                     else
                     {
@@ -43,6 +48,7 @@ namespace posrepository
             }
             catch (Exception ex)
             {
+                product.id = -1;
                 Logger.Error(ex.Message);
             }
             return product;

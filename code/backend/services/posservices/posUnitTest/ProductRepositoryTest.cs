@@ -19,9 +19,10 @@ namespace posUnitTest
             item.barcode = "7503020501623";
                 
             IProducts products = new ProductsRepository();
-            products.Create(item);
+            item = products.Create(item);
 
-            Assert.IsNotNull(products, "Add Item");
+            Assert.IsTrue(item.id == 0, "Not insert Item");
+            //Assert.( item.id > 0, "Add Item");
         }
         //[TestMethod]
         //public void GetById_()

@@ -1,2 +1,0 @@
-2019-12-26 00:23:16.8695 posrepository.Program  Info Hello world 
-2019-12-26 21:29:49.0610 posrepository.Program  Info Hello world 
