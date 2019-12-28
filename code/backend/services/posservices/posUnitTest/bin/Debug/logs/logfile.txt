@@ -1,0 +1,33 @@
+2019-12-27 18:55:44.5097 posrepository.ProductsRepository Create barcode unavailable: 750302050166 
+2019-12-27 19:00:17.0220 posrepository.ProductsRepository posrepository.ProductsRepository.Create Create barcode unavailable: 750302050166 
+2019-12-27 19:01:53.9582 posrepository.ProductsRepository.Create Create barcode unavailable: 750302050166 
+2019-12-27 19:01:54.5631 posrepository.ProductsRepository.Delete Delete Product:1 cstatus:2 
+2019-12-27 19:20:55.1359 posrepository.ProductsRepository.Create barcode unavailable: 750302050166 
+2019-12-27 19:20:55.3219 posrepository.ProductsRepository.Update Product Update 0  
+2019-12-27 19:20:56.3534 posrepository.ProductsRepository.Update Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions. 
+2019-12-27 19:22:02.5973 posrepository.ProductsRepository.Create barcode unavailable: 750302050166 
+2019-12-27 19:23:16.6202 posrepository.ProductsRepository.Update The operation cannot be completed because the DbContext has been disposed. 
+2019-12-27 21:19:25.3338 posrepository.ProductsRepository.Create barcode unavailable: 7503020501661 
+2019-12-27 21:19:25.9100 posrepository.ProductsRepository.Update Product Update 1  
+2019-12-27 21:30:16.8449 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-27 21:30:17.0838 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2019-12-27 21:32:10.9688 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2019-12-27 21:33:21.1768 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-27 21:33:22.1351 posrepository.ProductsRepository.Delete Product:4 cstatus:2 
+2019-12-27 21:33:22.1771 posrepository.ProductsRepository.Update Product Update 4  
+2019-12-27 21:34:21.2136 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-27 21:34:22.0095 posrepository.ProductsRepository.Delete Product:4 cstatus:2 
+2019-12-27 21:34:22.0415 posrepository.ProductsRepository.Update Product Update 4  
+2019-12-27 21:35:09.2297 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-27 21:35:09.6167 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2019-12-28 00:38:11.2424 posrepository.ProductentriesRepository.Create idproducts 4 quantity 10 unitary_cost 4.5 
+2019-12-28 00:38:11.8135 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-28 00:38:12.1856 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2019-12-28 00:55:57.1802 posrepository.ProductentriesRepository.Create idproducts 4 quantity 10 unitary_cost 4.5 
+2019-12-28 00:55:57.9893 posrepository.ProductentriesRepository.Update PRODUCTENTRy Update 1  
+2019-12-28 00:55:58.1373 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-28 00:55:58.2813 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2019-12-28 01:02:19.9190 posrepository.ProductentriesRepository.Create idproducts 4 quantity 10 unitary_cost 4.5 
+2019-12-28 01:02:20.2340 posrepository.ProductentriesRepository.Update PRODUCTENTRy Update 1  
+2019-12-28 01:02:20.2950 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-28 01:02:20.4180 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 

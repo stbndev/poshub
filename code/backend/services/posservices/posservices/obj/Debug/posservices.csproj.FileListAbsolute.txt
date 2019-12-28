@@ -165,3 +165,4 @@ C:\GitHub\code\backend\services\posservices\posservices\obj\Debug\posservices.cs
 C:\GitHub\code\backend\services\posservices\posservices\obj\Debug\posservices.csproj.CopyComplete
 C:\GitHub\code\backend\services\posservices\posservices\obj\Debug\posservices.dll
 C:\GitHub\code\backend\services\posservices\posservices\obj\Debug\posservices.pdb
+C:\GitHub\poshub\code\backend\services\posservices\posservices\obj\Debug\posservices.csprojAssemblyReference.cache
