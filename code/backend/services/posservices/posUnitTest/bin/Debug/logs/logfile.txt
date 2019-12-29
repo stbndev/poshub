@@ -31,3 +31,12 @@
 2019-12-28 01:02:20.2340 posrepository.ProductentriesRepository.Update PRODUCTENTRy Update 1  
 2019-12-28 01:02:20.2950 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
 2019-12-28 01:02:20.4180 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2019-12-28 20:41:07.0379 posrepository.ProductentriesRepository.Create id 5 total 5 create_date 615 idcstatus 4 
+2019-12-28 20:41:07.7389 posrepository.ProductentriesRepository.Create id 3 idproductentries 5 unity_cost 9 quantity 10 idproducts 4 
+2019-12-28 20:41:23.2700 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-28 20:42:53.3406 posrepository.ProductentriesRepository.Create id 6 total 5 create_date 605 idcstatus 4 
+2019-12-28 20:42:53.4056 posrepository.ProductentriesRepository.Create id 2 idproductentries 6 unity_cost 9 quantity 10 idproducts 4 
+2019-12-28 20:44:37.8265 posrepository.ProductentriesRepository.Create id 7 total 5 create_date 154 idcstatus 4 
+2019-12-28 20:44:37.8904 posrepository.ProductentriesRepository.Create id 0 idproductentries 0 unity_cost 9 quantity 10 idproducts 4 
+2019-12-28 21:17:03.5085 posrepository.ProductentriesRepository.Create id 8 total 5 create_date 1577567823 idcstatus 4 
+2019-12-28 21:17:03.5645 posrepository.ProductentriesRepository.Create id 0 idproductentries 0 unity_cost 9 quantity 10 idproducts 4 

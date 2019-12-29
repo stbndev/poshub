@@ -13,11 +13,11 @@ namespace posdb
 
         public int idproductentries { get; set; }
 
+        public decimal unitary_cost { get; set; }
+
         public int quantity { get; set; }
 
         public int idproducts { get; set; }
-
-        public int unitary_cost { get; set; }
 
         public virtual PRODUCTENTRy PRODUCTENTRy { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using posdb;
 using posrepository;
@@ -11,30 +12,42 @@ namespace posUnitTest
         [TestMethod]
         public void Create_()
         {
-            
+
             PRODUCTENTRy item = new PRODUCTENTRy();
-            item.idproducts = 4;
-            item.quantity = 10;
-            item.unitary_cost = (decimal)4.5;
+            item.total = (decimal)5;
+            item.idcstatus = 4;
+            item.PRODUCTENTRYDETAILS = new List<PRODUCTENTRYDETAIL>();
             
+            PRODUCTENTRYDETAIL tmp = new PRODUCTENTRYDETAIL();
+            tmp.unitary_cost = 9; // pasar a decimal
+            tmp.quantity = 10;
+            tmp.idproducts = 7;
+            item.PRODUCTENTRYDETAILS.Add(tmp);
+
             IProductentries productentries = new ProductentriesRepository();
             item = productentries.Create(item);
             Assert.IsTrue(item.id > 0, "Item add");
         }
 
-        [TestMethod]
-        public void Update_()
+        private long ConvertToTimestamp(DateTime value)
         {
-            PRODUCTENTRy item = new PRODUCTENTRy();
-            item.idproducts = 4;
-            item.quantity = 1000;
-            item.unitary_cost = (decimal)9.5;
-            item.id = 1;
-
-            IProductentries productentries = new ProductentriesRepository();
-            item = productentries.Update(item);
-            Assert.IsTrue(item.id > 0, "Item Set");
+            long epoch = (value.Ticks - 621355968000000000) / 10000000;
+            return epoch;
         }
+
+        //[TestMethod]
+        //public void Update_()
+        //{
+        //PRODUCTENTRy item = new PRODUCTENTRy();
+        //item.idproducts = 4;
+        //item.quantity = 1000;
+        //item.unitary_cost = (decimal)9.5;
+        //item.id = 1;
+
+        //IProductentries productentries = new ProductentriesRepository();
+        //item = productentries.Update(item);
+        //Assert.IsTrue(item.id > 0, "Item Set");
+        //}
 
         //[TestMethod]
         //public void Delete_()

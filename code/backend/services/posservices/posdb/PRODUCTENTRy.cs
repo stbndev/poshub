@@ -17,11 +17,11 @@ namespace posdb
 
         public int id { get; set; }
 
-        public decimal unitary_cost { get; set; }
+        public decimal total { get; set; }
 
-        public int quantity { get; set; }
+        public long create_date { get; set; }
 
-        public int idproducts { get; set; }
+        public int idcstatus { get; set; }
 
         public virtual PRODUCT PRODUCT { get; set; }
 

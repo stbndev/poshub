@@ -28,10 +28,31 @@ namespace posrepository
             {
                 using (var context = new posContext())
                 {
+                    using (var transaction = context.Database.BeginTransaction())
                     {
-                        context.Entry(itemparam).State = EntityState.Added;
-                        context.SaveChanges();
-                        Logger.Info("idproducts {0} quantity {1} unitary_cost {2}",itemparam.idproducts , itemparam.quantity, itemparam.unitary_cost);
+                        try
+                        {
+                            itemparam.create_date = PosUtil.ConvertToTimestamp(DateTime.Now);
+                            context.Entry<PRODUCTENTRy>(itemparam).State = EntityState.Added;
+
+                            var tmpitem = itemparam.PRODUCTENTRYDETAILS.FirstOrDefault();
+
+                            PRODUCTENTRYDETAIL itemanother = new PRODUCTENTRYDETAIL();
+                            itemanother.idproductentries = itemparam.id;
+                            itemanother.unitary_cost = tmpitem.unitary_cost;
+                            itemanother.quantity = tmpitem.quantity;
+                            itemanother.idproducts = tmpitem.idproducts;
+
+                            // context.Entry<PRODUCTENTRYDETAIL>(itemanother).State = EntityState.Added;
+                            context.SaveChanges();
+                            transaction.Commit();
+                            Logger.Info("id {0} total {1} create_date {2} idcstatus {3}", itemparam.id, itemparam.total, itemparam.create_date, itemparam.idcstatus);
+                            Logger.Info("id {0} idproductentries {1} unity_cost {2} quantity {3} idproducts {4}", itemanother.id, itemanother.idproductentries, itemanother.unitary_cost, itemanother.quantity, itemanother.idproducts);
+                        }
+                        catch (Exception)
+                        {
+                            transaction.Rollback();
+                        }
                     }
                 }
             }
@@ -50,10 +71,11 @@ namespace posrepository
                 using (var context = new posContext())
                 {
                     var item = Read(id: id).FirstOrDefault();
-                    context.Entry(item).State = EntityState.Deleted;
+                    item.idcstatus = (int)CSTATUS.ELIMINADO;
+                    context.Entry(item).State = EntityState.Modified;
                     context.SaveChanges();
                 }
-                Logger.Info(string.Format("ProductEntries:{0} ", id));
+                Logger.Info(string.Format("DELETED {0} ", id));
                 return true;
             }
             catch (Exception ex)
@@ -61,6 +83,8 @@ namespace posrepository
                 Logger.Error(ex.Message);
                 return false;
             }
+
+
         }
 
         public List<PRODUCTENTRy> Read(int id = 0, bool all = false)
@@ -96,9 +120,9 @@ namespace posrepository
                 using (var context = new posContext())
                 {
                     item = context.PRODUCTENTRIES.FirstOrDefault(x => x.id == itemparam.id);
-                    item.unitary_cost = itemparam.unitary_cost;
-                    item.quantity = itemparam.quantity;
-                    item.idproducts = itemparam.idproducts;
+                    //item.unitary_cost = itemparam.unitary_cost;
+                    //item.quantity = itemparam.quantity;
+                    //item.idproducts = itemparam.idproducts;
                     context.Entry(item).State = EntityState.Modified;
                     context.SaveChanges();
                     Logger.Info("PRODUCTENTRy Update {0} ", item.id);

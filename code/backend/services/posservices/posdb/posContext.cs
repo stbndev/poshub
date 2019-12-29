@@ -64,7 +64,7 @@ namespace posdb
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PRODUCTENTRy>()
-                .Property(e => e.unitary_cost)
+                .Property(e => e.total)
                 .HasPrecision(10, 2);
 
             modelBuilder.Entity<PRODUCTENTRy>()
@@ -72,6 +72,10 @@ namespace posdb
                 .WithRequired(e => e.PRODUCTENTRy)
                 .HasForeignKey(e => e.idproductentries)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PRODUCTENTRYDETAIL>()
+                .Property(e => e.unitary_cost)
+                .HasPrecision(10, 2);
 
             modelBuilder.Entity<PRODUCT>()
                 .Property(e => e.name)
@@ -98,7 +102,7 @@ namespace posdb
             modelBuilder.Entity<PRODUCT>()
                 .HasMany(e => e.PRODUCTENTRIES)
                 .WithRequired(e => e.PRODUCT)
-                .HasForeignKey(e => e.idproducts)
+                .HasForeignKey(e => e.idcstatus)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PRODUCT>()
