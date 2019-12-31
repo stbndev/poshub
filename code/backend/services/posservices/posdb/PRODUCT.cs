@@ -13,7 +13,6 @@ namespace posdb
         public PRODUCT()
         {
             LOSTITEMDETAILS = new HashSet<LOSTITEMDETAIL>();
-            PRODUCTENTRIES = new HashSet<PRODUCTENTRy>();
             PRODUCTENTRYDETAILS = new HashSet<PRODUCTENTRYDETAIL>();
             SALEDETAILS = new HashSet<SALEDETAIL>();
         }
@@ -40,9 +39,6 @@ namespace posdb
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LOSTITEMDETAIL> LOSTITEMDETAILS { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCTENTRy> PRODUCTENTRIES { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCTENTRYDETAIL> PRODUCTENTRYDETAILS { get; set; }

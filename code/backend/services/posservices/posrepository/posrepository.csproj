@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\ProductEntriesDTO.cs" />
     <Compile Include="ProductentriesRepository.cs" />
     <Compile Include="ProductsRepository.cs" />
     <Compile Include="Program.cs" />

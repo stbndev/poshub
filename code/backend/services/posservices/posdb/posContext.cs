@@ -100,12 +100,6 @@ namespace posdb
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PRODUCT>()
-                .HasMany(e => e.PRODUCTENTRIES)
-                .WithRequired(e => e.PRODUCT)
-                .HasForeignKey(e => e.idcstatus)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<PRODUCT>()
                 .HasMany(e => e.PRODUCTENTRYDETAILS)
                 .WithRequired(e => e.PRODUCT)
                 .HasForeignKey(e => e.idproducts)

@@ -20,7 +20,7 @@ namespace posrepository
 
     public class PosUtil 
     {
-        public static long ConvertToTimestamp(DateTime value)
+        public static long ConvertToTimestamp(DateTime value )
         {
             long epoch = (value.Ticks - 621355968000000000) / 10000000;
             // epoch epoca

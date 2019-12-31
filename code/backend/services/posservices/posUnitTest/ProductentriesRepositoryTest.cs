@@ -3,30 +3,48 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using posdb;
 using posrepository;
+using posrepository.DTO;
 
 namespace posUnitTest
 {
     [TestClass]
     public class ProductentriesRepositoryTest
     {
-        [TestMethod]
-        public void Create_()
-        {
+        //[TestMethod]
+        //public void Create_()
+        //{
+        //    ProductEntriesDTO productEntriesDTO = new ProductEntriesDTO();
+        //    productEntriesDTO.idcstatus = (int)CSTATUS.ACTIVO;
+        //    productEntriesDTO.unitary_cost = (decimal)9.50; // pasar a decimal
+        //    productEntriesDTO.quantity = 10;
+        //    productEntriesDTO.idproducts = 4;
 
-            PRODUCTENTRy item = new PRODUCTENTRy();
-            item.total = (decimal)5;
-            item.idcstatus = 4;
-            item.PRODUCTENTRYDETAILS = new List<PRODUCTENTRYDETAIL>();
-            
-            PRODUCTENTRYDETAIL tmp = new PRODUCTENTRYDETAIL();
-            tmp.unitary_cost = 9; // pasar a decimal
-            tmp.quantity = 10;
-            tmp.idproducts = 7;
-            item.PRODUCTENTRYDETAILS.Add(tmp);
+        //    IProductentries productentries = new ProductentriesRepository();
+        //    var item = productentries.Create(productEntriesDTO);
+        //    Assert.IsTrue(item.id > 0, "Item add");
+        //}
+
+        //[TestMethod]
+        //public void Delete_() 
+        //{
+        //    IProductentries productentries = new ProductentriesRepository();
+        //    var item = productentries.Delete(18);
+        //    Assert.IsTrue(item, "Item delete");
+        //}
+
+        [TestMethod]
+        public void Update_()
+        {
+            ProductEntriesDTO productEntriesDTO = new ProductEntriesDTO();
+            productEntriesDTO.idcstatus = (int)CSTATUS.INACTIVO;
+            productEntriesDTO.unitary_cost = (decimal)8.50; // pasar a decimal
+            productEntriesDTO.quantity = 7;
+            productEntriesDTO.idproducts = 4;
+            productEntriesDTO.idproductentries = 22;
 
             IProductentries productentries = new ProductentriesRepository();
-            item = productentries.Create(item);
-            Assert.IsTrue(item.id > 0, "Item add");
+            var item = productentries.Update(productEntriesDTO);
+            Assert.IsTrue(item.id > 0, "Item et");
         }
 
         private long ConvertToTimestamp(DateTime value)

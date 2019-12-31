@@ -40,3 +40,31 @@
 2019-12-28 20:44:37.8904 posrepository.ProductentriesRepository.Create id 0 idproductentries 0 unity_cost 9 quantity 10 idproducts 4 
 2019-12-28 21:17:03.5085 posrepository.ProductentriesRepository.Create id 8 total 5 create_date 1577567823 idcstatus 4 
 2019-12-28 21:17:03.5645 posrepository.ProductentriesRepository.Create id 0 idproductentries 0 unity_cost 9 quantity 10 idproducts 4 
+2019-12-30 20:02:23.9785 posrepository.ProductentriesRepository.Create PRODUCTENTRIES: id 15 total 95.0 create_date 1577736119 idcstatus 1 
+2019-12-30 20:02:24.5364 posrepository.ProductentriesRepository.Create PRODUCTENTRYDETAILS: id 2 idproductentries 15 unity_cost 9.5 quantity 10 idproducts 4 
+2019-12-30 20:02:24.9354 posrepository.ProductentriesRepository.Create PRODUCTS: id 4 idcstatus2 existence12 
+2019-12-30 20:04:26.8722 posrepository.ProductentriesRepository.Create PRODUCTENTRIES: id 16 total 95.0 create_date 1577736266 idcstatus 1 
+2019-12-30 20:04:26.9332 posrepository.ProductentriesRepository.Create PRODUCTENTRYDETAILS: id 1 idproductentries 16 unity_cost 9.5 quantity 10 idproducts 4 
+2019-12-30 20:04:26.9512 posrepository.ProductentriesRepository.Create PRODUCTS: id 4 idcstatus2 existence22 
+2019-12-30 20:05:00.6272 posrepository.ProductentriesRepository.Create PRODUCTENTRIES: id 17 total 95.0 create_date 1577736299 idcstatus 1 
+2019-12-30 20:05:00.6892 posrepository.ProductentriesRepository.Create PRODUCTENTRYDETAILS: id 2 idproductentries 17 unity_cost 9.5 quantity 10 idproducts 4 
+2019-12-30 20:05:00.7201 posrepository.ProductentriesRepository.Create PRODUCTS: id 4 idcstatus2 existence32 
+2019-12-30 20:05:36.2641 posrepository.ProductentriesRepository.Create PRODUCTENTRIES: id 18 total 95.0 create_date 1577736335 idcstatus 1 
+2019-12-30 20:05:36.3260 posrepository.ProductentriesRepository.Create PRODUCTENTRYDETAILS: id 1 idproductentries 18 unity_cost 9.5 quantity 10 idproducts 4 
+2019-12-30 20:05:36.3440 posrepository.ProductentriesRepository.Create PRODUCTS: id 4 idcstatus2 existence42 
+2019-12-30 20:32:47.8798 posrepository.ProductentriesRepository.Delete PRODUCTENTRY DELETED 18  
+2019-12-30 20:32:47.9558 posrepository.ProductentriesRepository.Delete PRODUCT MINUS10  
+2019-12-30 20:33:59.8915 posrepository.ProductentriesRepository.Delete PRODUCTENTRY DELETED 18  
+2019-12-30 20:33:59.9735 posrepository.ProductentriesRepository.Delete PRODUCT MINUS10  
+2019-12-30 20:34:32.9398 posrepository.ProductentriesRepository.Delete PRODUCTENTRY DELETED 18  
+2019-12-30 20:34:32.9938 posrepository.ProductentriesRepository.Delete PRODUCT MINUS10  
+2019-12-30 20:39:54.8120 posrepository.ProductentriesRepository.Delete PRODUCTENTRY DELETED 18  
+2019-12-30 20:39:54.8740 posrepository.ProductentriesRepository.Delete PRODUCT MINUS10  
+2019-12-30 22:15:24.0196 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-30 22:17:16.8269 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-30 22:24:45.7483 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-30 22:26:35.7058 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-30 22:28:04.9475 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-30 23:01:46.7596 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 24 total 59.5 create_date 1577744794 idcstatus 2 
+2019-12-30 23:05:29.8604 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-30 23:16:37.8938 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
