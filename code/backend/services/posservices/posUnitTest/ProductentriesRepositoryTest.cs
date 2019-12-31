@@ -17,7 +17,7 @@ namespace posUnitTest
         //    productEntriesDTO.idcstatus = (int)CSTATUS.ACTIVO;
         //    productEntriesDTO.unitary_cost = (decimal)9.50; // pasar a decimal
         //    productEntriesDTO.quantity = 10;
-        //    productEntriesDTO.idproducts = 4;
+        //    productEntriesDTO.idproducts = 1;
 
         //    IProductentries productentries = new ProductentriesRepository();
         //    var item = productentries.Create(productEntriesDTO);
@@ -36,11 +36,11 @@ namespace posUnitTest
         public void Update_()
         {
             ProductEntriesDTO productEntriesDTO = new ProductEntriesDTO();
-            productEntriesDTO.idcstatus = (int)CSTATUS.INACTIVO;
-            productEntriesDTO.unitary_cost = (decimal)8.50; // pasar a decimal
+            productEntriesDTO.idcstatus = (int)CSTATUS.ACTIVO;
+            productEntriesDTO.unitary_cost = (decimal)7.77; // pasar a decimal
             productEntriesDTO.quantity = 7;
-            productEntriesDTO.idproducts = 4;
-            productEntriesDTO.idproductentries = 22;
+            productEntriesDTO.idproducts = 1;
+            productEntriesDTO.idproductentries = 1;
 
             IProductentries productentries = new ProductentriesRepository();
             var item = productentries.Update(productEntriesDTO);

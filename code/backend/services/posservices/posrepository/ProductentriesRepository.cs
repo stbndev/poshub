@@ -164,24 +164,22 @@ namespace posrepository
 
                             productEntryDB = Read(id: dto.idproductentries).FirstOrDefault();
                             PRODUCTENTRYDETAIL productEntrydetailDB = productEntryDB.PRODUCTENTRYDETAILS.FirstOrDefault();
+                            PRODUCT productDB = context.PRODUCTS.FirstOrDefault(x => x.id == productEntrydetailDB.idproducts);
+                            
+                            if (dto.idcstatus == (int)CSTATUS.ACTIVO)
+                                productDB.existence = (productDB.existence - productEntrydetailDB.quantity) + dto.quantity;
+                            else
+                                productDB.existence = (productDB.existence - productEntrydetailDB.quantity) - dto.quantity;
 
                             productEntryDB.idcstatus = dto.idcstatus;
                             productEntryDB.total = dto.unitary_cost * dto.quantity;
                             productEntrydetailDB.quantity = dto.quantity;
                             productEntrydetailDB.unitary_cost = dto.unitary_cost;
 
-                            context.Entry<PRODUCTENTRy>(productEntryDB).State = EntityState.Added;
-                            context.SaveChanges();
-
-                            var productDB = context.PRODUCTS.FirstOrDefault(x => x.id == productEntrydetailDB.idproducts);
-
-                            if (dto.idcstatus == (int)CSTATUS.ACTIVO)
-                                productDB.existence = (productDB.existence - productEntrydetailDB.quantity) + dto.quantity;
-                            else
-                                productDB.existence = (productDB.existence - productEntrydetailDB.quantity) - dto.quantity;
-
+                            context.Entry<PRODUCTENTRy>(productEntryDB).State = EntityState.Modified;
                             context.Entry<PRODUCT>(productDB).State = EntityState.Modified;
                             context.SaveChanges();
+                            
                             transaction.Commit();
 
                             Logger.Info("PRODUCTENTRIES: id {0} total {1} create_date {2} idcstatus {3}", productEntryDB.id, productEntryDB.total, productEntryDB.create_date, productEntryDB.idcstatus);
