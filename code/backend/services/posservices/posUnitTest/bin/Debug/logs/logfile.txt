@@ -82,3 +82,8 @@
 2019-12-31 17:30:33.7894 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 27 total 54.39 create_date 1577805203 idcstatus 2 
 2019-12-31 17:32:51.1655 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 27 total 977.00 create_date 1577805203 idcstatus 1 
 2019-12-31 18:11:49.1385 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 27 total 488.50 create_date 1577805203 idcstatus 3 
+2019-12-31 20:54:22.6610 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 538.50 create_date 1577796056 idcstatus 2 
+2019-12-31 21:54:11.8910 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 646.20 create_date 1577796056 idcstatus 2 
+2019-12-31 23:38:08.9753 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 646.20 create_date 1577796056 idcstatus 2 
+2019-12-31 23:38:48.7252 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 646.20 create_date 1577796056 idcstatus 2 
+2019-12-31 23:40:05.8972 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 646.20 create_date 1577796056 idcstatus 1 

@@ -32,19 +32,7 @@ namespace posdb
                 .IsUnicode(false);
 
             modelBuilder.Entity<CSTATU>()
-                .HasMany(e => e.LOSTITEMS)
-                .WithRequired(e => e.CSTATU)
-                .HasForeignKey(e => e.idcstatus)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<CSTATU>()
                 .HasMany(e => e.PRODUCTS)
-                .WithRequired(e => e.CSTATU)
-                .HasForeignKey(e => e.idcstatus)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<CSTATU>()
-                .HasMany(e => e.SALES)
                 .WithRequired(e => e.CSTATU)
                 .HasForeignKey(e => e.idcstatus)
                 .WillCascadeOnDelete(false);

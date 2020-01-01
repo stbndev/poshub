@@ -12,9 +12,7 @@ namespace posdb
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CSTATU()
         {
-            LOSTITEMS = new HashSet<LOSTITEM>();
             PRODUCTS = new HashSet<PRODUCT>();
-            SALES = new HashSet<SALE>();
         }
 
         public int id { get; set; }
@@ -32,12 +30,6 @@ namespace posdb
         public int modification_date { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LOSTITEM> LOSTITEMS { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT> PRODUCTS { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SALE> SALES { get; set; }
     }
 }

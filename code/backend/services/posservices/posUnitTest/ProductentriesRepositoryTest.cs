@@ -37,10 +37,10 @@ namespace posUnitTest
         {
             ProductEntriesDTO productEntriesDTO = new ProductEntriesDTO();
             productEntriesDTO.idcstatus = (int)CSTATUS.ACTIVO;
-            productEntriesDTO.unitary_cost = (decimal)10.77; // pasar a decimal
-            productEntriesDTO.quantity = 50;
-            productEntriesDTO.idproducts = 4;
-            productEntriesDTO.idproductentries = 27;
+            productEntriesDTO.unitary_cost = (decimal)10.77; 
+            productEntriesDTO.quantity = 60;
+            productEntriesDTO.idproducts = 1;
+            productEntriesDTO.idproductentries = 1;
 
             IProductentries productentries = new ProductentriesRepository();
             var item = productentries.Update(productEntriesDTO);

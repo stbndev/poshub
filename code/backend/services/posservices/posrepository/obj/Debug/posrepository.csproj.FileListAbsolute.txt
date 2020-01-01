@@ -15,7 +15,6 @@ C:\GitHub\code\backend\services\posservices\posrepository\obj\Debug\posrepositor
 C:\GitHub\code\backend\services\posservices\posrepository\obj\Debug\posrepository.csproj.CopyComplete
 C:\GitHub\code\backend\services\posservices\posrepository\obj\Debug\posrepository.exe
 C:\GitHub\code\backend\services\posservices\posrepository\obj\Debug\posrepository.pdb
-C:\GitHub\poshub\code\backend\services\posservices\posrepository\obj\Debug\posrepository.csprojAssemblyReference.cache
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\NLog.config
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\posrepository.exe.config
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\posrepository.exe
@@ -29,6 +28,7 @@ C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\posdb
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\EntityFramework.xml
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\EntityFramework.SqlServer.xml
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\NLog.xml
+C:\GitHub\poshub\code\backend\services\posservices\posrepository\obj\Debug\posrepository.csprojAssemblyReference.cache
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\obj\Debug\posrepository.csproj.CopyComplete
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\obj\Debug\posrepository.exe
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\obj\Debug\posrepository.pdb

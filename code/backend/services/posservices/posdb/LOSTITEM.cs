@@ -23,8 +23,6 @@ namespace posdb
 
         public decimal total { get; set; }
 
-        public virtual CSTATU CSTATU { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LOSTITEMDETAIL> LOSTITEMDETAILS { get; set; }
     }

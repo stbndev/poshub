@@ -16,7 +16,7 @@ C:\GitHub\poshub\code\backend\services\posservices\posdb\bin\Debug\EntityFramewo
 C:\GitHub\poshub\code\backend\services\posservices\posdb\bin\Debug\EntityFramework.SqlServer.dll
 C:\GitHub\poshub\code\backend\services\posservices\posdb\bin\Debug\EntityFramework.xml
 C:\GitHub\poshub\code\backend\services\posservices\posdb\bin\Debug\EntityFramework.SqlServer.xml
+C:\GitHub\poshub\code\backend\services\posservices\posdb\obj\Debug\posdb.csprojAssemblyReference.cache
 C:\GitHub\poshub\code\backend\services\posservices\posdb\obj\Debug\posdb.csproj.CopyComplete
 C:\GitHub\poshub\code\backend\services\posservices\posdb\obj\Debug\posdb.exe
 C:\GitHub\poshub\code\backend\services\posservices\posdb\obj\Debug\posdb.pdb
-C:\GitHub\poshub\code\backend\services\posservices\posdb\obj\Debug\posdb.csprojAssemblyReference.cache

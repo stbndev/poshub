@@ -8,14 +8,3 @@ C:\GitHub\code\backend\services\posservices\posdb\bin\Release\EntityFramework.Sq
 C:\GitHub\code\backend\services\posservices\posdb\obj\Release\posdb.csproj.CopyComplete
 C:\GitHub\code\backend\services\posservices\posdb\obj\Release\posdb.exe
 C:\GitHub\code\backend\services\posservices\posdb\obj\Release\posdb.pdb
-C:\GitHub\poshub\code\backend\services\posservices\posdb\bin\Release\posdb.exe.config
-C:\GitHub\poshub\code\backend\services\posservices\posdb\bin\Release\posdb.exe
-C:\GitHub\poshub\code\backend\services\posservices\posdb\bin\Release\posdb.pdb
-C:\GitHub\poshub\code\backend\services\posservices\posdb\bin\Release\EntityFramework.dll
-C:\GitHub\poshub\code\backend\services\posservices\posdb\bin\Release\EntityFramework.SqlServer.dll
-C:\GitHub\poshub\code\backend\services\posservices\posdb\bin\Release\EntityFramework.xml
-C:\GitHub\poshub\code\backend\services\posservices\posdb\bin\Release\EntityFramework.SqlServer.xml
-C:\GitHub\poshub\code\backend\services\posservices\posdb\obj\Release\posdb.csproj.CopyComplete
-C:\GitHub\poshub\code\backend\services\posservices\posdb\obj\Release\posdb.exe
-C:\GitHub\poshub\code\backend\services\posservices\posdb\obj\Release\posdb.pdb
-C:\GitHub\poshub\code\backend\services\posservices\posdb\obj\Release\posdb.csprojAssemblyReference.cache

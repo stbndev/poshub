@@ -165,26 +165,16 @@ namespace posrepository
                             PRODUCTENTRYDETAIL productEntrydetailDB = productEntryDB.PRODUCTENTRYDETAILS.FirstOrDefault();
                             PRODUCT productDB = context.PRODUCTS.FirstOrDefault(x => x.id == productEntrydetailDB.idproducts);
 
-                            if (dto.quantity != productEntrydetailDB.quantity || dto.unitary_cost != productEntrydetailDB.unitary_cost)
+
+                            if (productEntryDB.idcstatus != dto.idcstatus)
                             {
-
-                                var tmp = (productDB.existence - productEntrydetailDB.quantity);
-                                tmp = tmp + dto.quantity;
-                                productDB.existence = tmp;
-
-                                //if (dto.idcstatus == (int)CSTATUS.ACTIVO)
-                                //{
-                                //    var tmp = (productDB.existence - productEntrydetailDB.quantity);
-                                //    tmp = tmp + dto.quantity;
-                                //    productDB.existence = tmp;
-                                //}
-                                //else
-                                //{
-                                //    var tmp = (productDB.existence - productEntrydetailDB.quantity);
-                                //    tmp = tmp - dto.quantity;
-                                //    productDB.existence = tmp;
-                                //}
+                                if (dto.idcstatus == (int)CSTATUS.ACTIVO)
+                                    productDB.existence = (productDB.existence + productEntrydetailDB.quantity);
+                                else
+                                    productDB.existence = (productDB.existence - dto.quantity);
                             }
+
+
 
                             productEntrydetailDB.quantity = dto.quantity;
                             productEntrydetailDB.unitary_cost = dto.unitary_cost;
