@@ -31,7 +31,7 @@ namespace posdb
 
         public decimal price { get; set; }
 
-        public decimal cost { get; set; }
+        public decimal unitary_cost { get; set; }
 
         public int existence { get; set; }
 

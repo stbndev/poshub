@@ -90,7 +90,7 @@ namespace posdb
                 .HasPrecision(10, 2);
 
             modelBuilder.Entity<PRODUCT>()
-                .Property(e => e.cost)
+                .Property(e => e.unitary_cost)
                 .HasPrecision(10, 2);
 
             modelBuilder.Entity<PRODUCT>()

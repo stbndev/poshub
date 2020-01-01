@@ -114,7 +114,7 @@ namespace posrepository
                     item.barcode = productargument.barcode;
                     item.idcstatus = productargument.idcstatus;
                     item.price = productargument.price;
-                    item.cost= productargument.cost;
+                    item.unitary_cost= productargument.unitary_cost;
                     item.existence = productargument.existence;
                     context.Entry(item).State = EntityState.Modified;
                     context.SaveChanges();

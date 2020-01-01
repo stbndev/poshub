@@ -10,19 +10,19 @@ namespace posUnitTest
     [TestClass]
     public class ProductentriesRepositoryTest
     {
-        //[TestMethod]
-        //public void Create_()
-        //{
-        //    ProductEntriesDTO productEntriesDTO = new ProductEntriesDTO();
-        //    productEntriesDTO.idcstatus = (int)CSTATUS.ACTIVO;
-        //    productEntriesDTO.unitary_cost = (decimal)9.50; // pasar a decimal
-        //    productEntriesDTO.quantity = 10;
-        //    productEntriesDTO.idproducts = 1;
+        [TestMethod]
+        public void Create_()
+        {
+            //ProductEntriesDTO productEntriesDTO = new ProductEntriesDTO();
+            //productEntriesDTO.idcstatus = (int)CSTATUS.ACTIVO;
+            //productEntriesDTO.unitary_cost = (decimal)9.50; // pasar a decimal
+            //productEntriesDTO.quantity = 10;
+            //productEntriesDTO.idproducts = 4;
 
-        //    IProductentries productentries = new ProductentriesRepository();
-        //    var item = productentries.Create(productEntriesDTO);
-        //    Assert.IsTrue(item.id > 0, "Item add");
-        //}
+            //IProductentries productentries = new ProductentriesRepository();
+            //var item = productentries.Create(productEntriesDTO);
+            //Assert.IsTrue(item.id > 0, "Item add");
+        }
 
         //[TestMethod]
         //public void Delete_() 
@@ -37,10 +37,10 @@ namespace posUnitTest
         {
             ProductEntriesDTO productEntriesDTO = new ProductEntriesDTO();
             productEntriesDTO.idcstatus = (int)CSTATUS.ACTIVO;
-            productEntriesDTO.unitary_cost = (decimal)7.77; // pasar a decimal
-            productEntriesDTO.quantity = 7;
-            productEntriesDTO.idproducts = 1;
-            productEntriesDTO.idproductentries = 1;
+            productEntriesDTO.unitary_cost = (decimal)10.77; // pasar a decimal
+            productEntriesDTO.quantity = 50;
+            productEntriesDTO.idproducts = 4;
+            productEntriesDTO.idproductentries = 27;
 
             IProductentries productentries = new ProductentriesRepository();
             var item = productentries.Update(productEntriesDTO);
