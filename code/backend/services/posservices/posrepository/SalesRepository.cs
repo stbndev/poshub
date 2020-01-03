@@ -40,6 +40,7 @@ namespace posrepository
                             context.Entry<SALE>(sale).State = EntityState.Added;
 
                             decimal tmptotal = 0;
+                            
                             foreach (var item in dto.details)
                             {
                                 PRODUCT product = context.PRODUCTS.FirstOrDefault(x => x.id == item.idproducts);
@@ -51,19 +52,12 @@ namespace posrepository
                                 saledetails.idproducts = item.idproducts;
                                 context.Entry<SALEDETAIL>(saledetails).State = EntityState.Added;
                                 tmptotal = tmptotal + (saledetails.unitary_price * saledetails.quantity);
+                                product.existence = product.existence - item.quantity;
+                                context.Entry<PRODUCT>(product).State = EntityState.Modified;
                             }
-
-
-
-                            context.SaveChanges();
-
-                            product.existence = product.existence - dto.quantity;
-
-                            context.Entry<PRODUCT>(product).State = EntityState.Modified;
-
+                            sale.total = tmptotal;
                             context.SaveChanges();
                             transaction.Commit();
-
                             Logger.Info("PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT");
                         }
                         catch (Exception tex)
@@ -76,10 +70,10 @@ namespace posrepository
             }
             catch (Exception ex)
             {
-                productEntry.id = -1;
+                sale.id = -1;
                 Logger.Error(ex.Message);
             }
-            return productEntry;
+            return sale;
         }
 
         public bool Delete(SALE sale)
