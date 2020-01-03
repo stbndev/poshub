@@ -24,28 +24,28 @@ namespace posUnitTest
             //Assert.IsTrue(item.id > 0, "Item add");
         }
 
-        //[TestMethod]
-        //public void Delete_() 
-        //{
-        //    IProductentries productentries = new ProductentriesRepository();
-        //    var item = productentries.Delete(18);
-        //    Assert.IsTrue(item, "Item delete");
-        //}
-
         [TestMethod]
-        public void Update_()
+        public void Delete_()
         {
-            ProductEntriesDTO productEntriesDTO = new ProductEntriesDTO();
-            productEntriesDTO.idcstatus = (int)CSTATUS.ACTIVO;
-            productEntriesDTO.unitary_cost = (decimal)10.77; 
-            productEntriesDTO.quantity = 60;
-            productEntriesDTO.idproducts = 1;
-            productEntriesDTO.idproductentries = 1;
-
             IProductentries productentries = new ProductentriesRepository();
-            var item = productentries.Update(productEntriesDTO);
-            Assert.IsTrue(item.id > 0, "Item et");
+            var item = productentries.Delete(27);
+            Assert.IsTrue(item, "Item delete");
         }
+
+        //[TestMethod]
+        //public void Update_()
+        //{
+        //ProductEntriesDTO productEntriesDTO = new ProductEntriesDTO();
+        //productEntriesDTO.idcstatus = (int)CSTATUS.ACTIVO;
+        //productEntriesDTO.unitary_cost = (decimal)10.77; 
+        //productEntriesDTO.quantity = 60;
+        //productEntriesDTO.idproducts = 1;
+        //productEntriesDTO.idproductentries = 1;
+
+        //IProductentries productentries = new ProductentriesRepository();
+        //var item = productentries.Update(productEntriesDTO);
+        //Assert.IsTrue(item.id > 0, "Item et");
+        //}
 
         private long ConvertToTimestamp(DateTime value)
         {
@@ -55,6 +55,7 @@ namespace posUnitTest
 
         //[TestMethod]
         //public void Update_()
+
         //{
         //PRODUCTENTRy item = new PRODUCTENTRy();
         //item.idproducts = 4;

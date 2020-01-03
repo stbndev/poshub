@@ -11,9 +11,9 @@ namespace posrepository
 {
     public interface IProductentries
     {
-        PRODUCTENTRy Create(ProductEntriesDTO itemparam);
+        PRODUCTENTRy Create(ProductDTO itemparam);
         List<PRODUCTENTRy> Read(int id = 0, bool all = false);
-        PRODUCTENTRy Update(ProductEntriesDTO itemparam);
+        PRODUCTENTRy Update(ProductDTO itemparam);
         bool Delete(int id);
     }
 
@@ -21,7 +21,7 @@ namespace posrepository
     {
         private static readonly Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public PRODUCTENTRy Create(ProductEntriesDTO dto)
+        public PRODUCTENTRy Create(ProductDTO dto)
         {
             PRODUCTENTRy productEntry = new PRODUCTENTRy();
             try
@@ -89,7 +89,7 @@ namespace posrepository
                     {
                         try
                         {
-                            var productentry = Read(id: id).FirstOrDefault();
+                            PRODUCTENTRy productentry = Read(id: id).FirstOrDefault();
                             if (productentry.idcstatus != (int)CSTATUS.ELIMINADO)
                             {
                                 productentry.idcstatus = (int)CSTATUS.ELIMINADO;
@@ -147,7 +147,7 @@ namespace posrepository
             return listItems;
         }
 
-        public PRODUCTENTRy Update(ProductEntriesDTO dto)
+        public PRODUCTENTRy Update(ProductDTO dto)
         {
             PRODUCTENTRy productEntryDB = new PRODUCTENTRy();
             try

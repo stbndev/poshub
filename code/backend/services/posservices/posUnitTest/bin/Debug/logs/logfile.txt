@@ -87,3 +87,5 @@
 2019-12-31 23:38:08.9753 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 646.20 create_date 1577796056 idcstatus 2 
 2019-12-31 23:38:48.7252 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 646.20 create_date 1577796056 idcstatus 2 
 2019-12-31 23:40:05.8972 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 646.20 create_date 1577796056 idcstatus 1 
+2020-01-02 18:06:03.6965 posrepository.ProductentriesRepository.Delete PRODUCTENTRY DELETED 27  
+2020-01-02 18:06:04.2495 posrepository.ProductentriesRepository.Delete PRODUCT MINUS50  
