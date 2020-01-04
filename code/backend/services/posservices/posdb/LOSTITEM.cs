@@ -19,7 +19,7 @@ namespace posdb
 
         public int create_date { get; set; }
 
-        public int idcstatus { get; set; }
+        public long idcstatus { get; set; }
 
         public decimal total { get; set; }
 

@@ -15,7 +15,6 @@ namespace posdb
             SALEDETAILS = new HashSet<SALEDETAIL>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
         public decimal total { get; set; }
@@ -27,6 +26,8 @@ namespace posdb
         public string maker { get; set; }
 
         public long create_date { get; set; }
+
+        public long modification_date { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SALEDETAIL> SALEDETAILS { get; set; }

@@ -8,29 +8,34 @@ using posrepository.DTO;
 namespace posUnitTest
 {
     [TestClass]
-    public class ProductentriesRepositoryTest
+    public class SaleTest
     {
-        [TestMethod]
-        public void Create_()
-        {
-            //ProductEntriesDTO productEntriesDTO = new ProductEntriesDTO();
-            //productEntriesDTO.idcstatus = (int)CSTATUS.ACTIVO;
-            //productEntriesDTO.unitary_cost = (decimal)9.50; // pasar a decimal
-            //productEntriesDTO.quantity = 10;
-            //productEntriesDTO.idproducts = 4;
-
-            //IProductentries productentries = new ProductentriesRepository();
-            //var item = productentries.Create(productEntriesDTO);
-            //Assert.IsTrue(item.id > 0, "Item add");
-        }
-
         //[TestMethod]
-        //public void Delete_()
+        //public void Create_()
         //{
-        //    IProductentries productentries = new ProductentriesRepository();
-        //    var item = productentries.Delete(27);
-        //    Assert.IsTrue(item, "Item delete");
+        //    SalesDTO sDTO = new SalesDTO();
+        //    sDTO.total = 0;
+        //    sDTO.idcstatus = (int)CSTATUS.ACTIVO;
+        //    sDTO.maker = "TestClass";
+        //    SalesDetailsDTO sdDTO = new SalesDetailsDTO();
+        //    sdDTO.unitary_price = 0;
+        //    sdDTO.quantity = 1;
+        //    sdDTO.idproducts = 1;
+        //    sDTO.details = new List<SalesDetailsDTO>();
+        //    sDTO.details.Add(sdDTO);
+
+        //    ISales ctrlSales = new SalesRepository();
+        //    var result = ctrlSales.Create(sDTO);
+        //    Assert.IsTrue(result.id > 0, "OK success");
         //}
+
+        [TestMethod]
+        public void Delete_()
+        {
+            ISales isr = new SalesRepository();
+            var item = isr.Delete(0);
+            Assert.IsTrue(item, "Item delete");
+        }
 
         //[TestMethod]
         //public void Update_()

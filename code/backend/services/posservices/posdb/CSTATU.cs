@@ -25,9 +25,9 @@ namespace posdb
         [StringLength(280)]
         public string maker { get; set; }
 
-        public int create_date { get; set; }
+        public long create_date { get; set; }
 
-        public int modification_date { get; set; }
+        public long modification_date { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT> PRODUCTS { get; set; }

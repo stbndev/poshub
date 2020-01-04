@@ -162,7 +162,6 @@ C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\System.Web.We
 C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\System.Web.WebPages.Razor.xml
 C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\Antlr3.Runtime.pdb
 C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\GitHub\poshub\code\backend\services\posservices\posservices\obj\Debug\posservices.csprojAssemblyReference.cache
 C:\GitHub\poshub\code\backend\services\posservices\posservices\obj\Debug\posservices.csproj.CopyComplete
 C:\GitHub\poshub\code\backend\services\posservices\posservices\obj\Debug\posservices.dll
 C:\GitHub\poshub\code\backend\services\posservices\posservices\obj\Debug\posservices.pdb
