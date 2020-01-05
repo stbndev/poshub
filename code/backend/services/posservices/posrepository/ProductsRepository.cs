@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using posdb;
+
 using System.Data.Entity;
 using NLog;
 using posrepository.DTO;
@@ -61,8 +61,7 @@ namespace posrepository
 
         public PRODUCTENTRy CreateEntry(ProductDTO dto)
         {
-            PRODUCTENTRy pe = new PRODUCTENTRy();
-            pe.PRODUCTENTRYDETAILS = new List<PRODUCTENTRYDETAIL>();
+            PRODUCTENTRy pe ;
             try
             {
                 using (var context = new posContext())
@@ -71,17 +70,20 @@ namespace posrepository
                     {
                         try
                         {
+                            pe = new PRODUCTENTRy();
                             pe.total = dto.unitary_cost * dto.quantity;
                             pe.create_date = PosUtil.ConvertToTimestamp(DateTime.Now);
                             pe.idcstatus = dto.idcstatus;
+                            context.Entry<PRODUCTENTRy>(pe).State = EntityState.Added;
+                            context.SaveChanges();
 
                             PRODUCTENTRYDETAIL ped = new PRODUCTENTRYDETAIL();
                             ped.idproductentries = pe.id;
                             ped.unitary_cost = dto.unitary_cost;
                             ped.quantity = dto.quantity;
                             ped.idproducts = pe.id;
-                            pe.PRODUCTENTRYDETAILS.Add(ped);
-                            context.Entry<PRODUCTENTRy>(pe).State = EntityState.Added;
+                            context.Entry<PRODUCTENTRYDETAIL>(ped).State = EntityState.Modified;
+                            context.SaveChanges();
 
                             PRODUCT product = context.PRODUCTS.FirstOrDefault(x => x.id == dto.idproducts);
 

@@ -83,10 +83,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\posdb\posdb.csproj">
-      <Project>{77E613A2-5A8F-43B9-9815-A43E284287D0}</Project>
-      <Name>posdb</Name>
-    </ProjectReference>
     <ProjectReference Include="..\posrepository\posrepository.csproj">
       <Project>{7b427dbf-8256-4b91-85f9-a3cf2aaf9ac9}</Project>
       <Name>posrepository</Name>

@@ -31,9 +31,12 @@ namespace posUnitTest
         {
             ProductDTO dto = new ProductDTO();
             dto.idcstatus = (int)CSTATUS.ACTIVO;
-            dto.unitary_cost = (decimal)4.58;
+            dto.unitary_cost = (decimal)9.70;
+            dto.price = 
             dto.quantity = 1;
-            dto.idproducts = 2;
+            dto.idproducts = 1;
+            dto.price = 13;
+            
 
             IProducts products = new ProductsRepository();
             var item = products.CreateEntry(dto);
