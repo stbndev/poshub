@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 using posdb;
 using System.Data.Entity;
 using NLog;
+using posrepository.DTO;
 
 namespace posrepository
 {
     public interface IProducts
     {
-        // PRODUCT GetById(int id);
-        PRODUCT Create(PRODUCT product);
+        PRODUCT Create(ProductDTO dto);
+        PRODUCTENTRy CreateEntry(ProductDTO dto);
         List<PRODUCT> Read(int id = 0, string barcode = "", int idcstatus = -100, decimal price = -100, decimal cost = -100, int existence = -100, bool all = false);
         PRODUCT Update(PRODUCT product);
         bool Delete(int id, int cstatus);
@@ -22,34 +23,94 @@ namespace posrepository
     {
         private static readonly Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public PRODUCT Create(PRODUCT product)
+        public PRODUCT Create(ProductDTO dto)
         {
+            PRODUCT p = new PRODUCT();
             try
             {
                 using (var context = new posContext())
                 {
                     // check if no exist barcode 
-                    var checkExist = Read(barcode: product.barcode);
+                    var checkExist = Read(barcode: dto.barcode);
 
                     if (checkExist.Count() > 0)
                     {
-                        Logger.Error("barcode unavailable: {0}", product.barcode);
-                        product.id = 0;
-                        //return new PRODUCT();
+                        Logger.Error("barcode unavailable: {0}", dto.barcode);
+                        p.id= 0;
                     }
                     else
                     {
-                        context.Entry(product).State = EntityState.Added;
+                        p.name = dto.name;
+                        p.barcode = dto.barcode;
+                        p.idcstatus = dto.idcstatus;
+                        p.price = dto.price;
+                        p.unitary_cost = dto.unitary_cost;
+                        p.existence = dto.existence;
+                        context.Entry(p).State = EntityState.Added;
                         context.SaveChanges();
                     }
                 }
             }
             catch (Exception ex)
             {
-                product.id = -1;
+                p.id = -1;
                 Logger.Error(ex.Message);
             }
-            return product;
+            return p;
+        }
+
+        public PRODUCTENTRy CreateEntry(ProductDTO dto)
+        {
+            PRODUCTENTRy pe = new PRODUCTENTRy();
+            pe.PRODUCTENTRYDETAILS = new List<PRODUCTENTRYDETAIL>();
+            try
+            {
+                using (var context = new posContext())
+                {
+                    using (var transaction = context.Database.BeginTransaction())
+                    {
+                        try
+                        {
+                            pe.total = dto.unitary_cost * dto.quantity;
+                            pe.create_date = PosUtil.ConvertToTimestamp(DateTime.Now);
+                            pe.idcstatus = dto.idcstatus;
+
+                            PRODUCTENTRYDETAIL ped = new PRODUCTENTRYDETAIL();
+                            ped.idproductentries = pe.id;
+                            ped.unitary_cost = dto.unitary_cost;
+                            ped.quantity = dto.quantity;
+                            ped.idproducts = pe.id;
+                            pe.PRODUCTENTRYDETAILS.Add(ped);
+                            context.Entry<PRODUCTENTRy>(pe).State = EntityState.Added;
+
+                            PRODUCT product = context.PRODUCTS.FirstOrDefault(x => x.id == dto.idproducts);
+
+                            if (pe.idcstatus == (int)CSTATUS.ACTIVO)
+                                product.existence = product.existence + dto.quantity;
+                            else
+                                product.existence = product.existence - dto.quantity;
+
+                            context.Entry<PRODUCT>(product).State = EntityState.Modified;
+
+                            context.SaveChanges();
+                            transaction.Commit();
+
+                            Logger.Info("PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT");
+                        }
+                        catch (Exception tex)
+                        {
+                            transaction.Rollback();
+                            Logger.Error(tex.Message);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                pe.id = -1;
+                Logger.Error(ex.Message);
+            }
+            return pe;
         }
 
         public bool Delete(int id, int cstatus)

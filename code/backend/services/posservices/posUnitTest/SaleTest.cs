@@ -29,13 +29,13 @@ namespace posUnitTest
         //    Assert.IsTrue(result.id > 0, "OK success");
         //}
 
-        [TestMethod]
-        public void Delete_()
-        {
-            ISales isr = new SalesRepository();
-            var item = isr.Delete(0);
-            Assert.IsTrue(item, "Item delete");
-        }
+        //[TestMethod]
+        //public void Delete_()
+        //{
+        //    ISales isr = new SalesRepository();
+        //    var item = isr.Delete(0);
+        //    Assert.IsTrue(item, "Item delete");
+        //}
 
         //[TestMethod]
         //public void Update_()
