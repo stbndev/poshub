@@ -1,5 +1,5 @@
 ﻿using NLog;
-using posdb;
+using mrgvn.db;
 using posrepository.DTO;
 using System;
 using System.Collections.Generic;

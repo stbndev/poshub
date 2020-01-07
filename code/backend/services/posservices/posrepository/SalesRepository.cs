@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using posdb;
+using mrgvn.db;
 using posrepository.DTO;
 using System.Data.Entity;
 
@@ -98,7 +98,8 @@ namespace posrepository
                                 sale.idcstatus = (int)CSTATUS.ELIMINADO;
                                 sale.modification_date = PosUtil.ConvertToTimestamp(DateTime.Now);
                                 //  PRODUCT product = context.PRODUCTS.FirstOrDefault(x => x.id == item.idproducts);
-                                PRODUCT product = item.PRODUCT;
+                                //PRODUCT product = item.PRODUCT;
+                                PRODUCT product = new PRODUCT();
                                 product.existence = product.existence + item.quantity;
                                 context.Entry<PRODUCT>(product).State = EntityState.Modified;
                                 context.SaveChanges();
@@ -128,17 +129,17 @@ namespace posrepository
             List<SALE> sales = new List<SALE>();
             try
             {
-                using (var context = new posContext())
-                {
-                    // filters 
-                    if (all)
-                        sales = context.SALES.
-                            Include(x => x.SALEDETAILS).
-                            Include(x => x.SALEDETAILS.Select(sd => sd.PRODUCT)).ToList();
-                    else if (id >= 0)
-                        sales = context.SALES.Include(x => x.SALEDETAILS).
-                                              Include(x => x.SALEDETAILS.Select(sd => sd.PRODUCT)).Where(x => x.id == id).ToList();
-                }
+                //using (var context = new posContext())
+                //{
+                //    // filters 
+                //    if (all)
+                //        sales = context.SALES.
+                //            Include(x => x.SALEDETAILS).ToList();
+                //    //Include(x => x.SALEDETAILS.Select(sd => sd.PRODUCT)).ToList();
+                //    else if (id >= 0)
+                //        sales = context.SALES.Include(x => x.SALEDETAILS).ToList();
+                //    //Include(x => x.SALEDETAILS.Select(sd => sd.PRODUCT)).Where(x => x.id == id).ToList();
+                //}
             }
             catch (Exception ex)
             {

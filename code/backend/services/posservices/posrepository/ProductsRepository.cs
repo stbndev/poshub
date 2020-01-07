@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using NLog;
 using posrepository.DTO;
-
+using mrgvn.db;
 namespace posrepository
 {
     public interface IProducts
@@ -15,7 +15,7 @@ namespace posrepository
         PRODUCT Create(ProductDTO dto);
         PRODUCTENTRy CreateEntry(ProductDTO dto);
         List<PRODUCT> Read(int id = 0, string barcode = "", int idcstatus = -100, decimal price = -100, decimal cost = -100, int existence = -100, bool all = false);
-        PRODUCT Update(PRODUCT product);
+        PRODUCT Update(ProductDTO dto);
         bool Delete(int id, int cstatus);
     }
 
@@ -43,7 +43,7 @@ namespace posrepository
                         p.name = dto.name;
                         p.barcode = dto.barcode;
                         p.idcstatus = dto.idcstatus;
-                        p.price = dto.price;
+                        p.price = dto.unitary_price;
                         p.unitary_cost = dto.unitary_cost;
                         p.existence = dto.existence;
                         context.Entry(p).State = EntityState.Added;
@@ -61,7 +61,7 @@ namespace posrepository
 
         public PRODUCTENTRy CreateEntry(ProductDTO dto)
         {
-            PRODUCTENTRy pe ;
+            PRODUCTENTRy pe  = new PRODUCTENTRy();
             try
             {
                 using (var context = new posContext())
@@ -81,9 +81,9 @@ namespace posrepository
                             ped.idproductentries = pe.id;
                             ped.unitary_cost = dto.unitary_cost;
                             ped.quantity = dto.quantity;
-                            ped.idproducts = pe.id;
-                            context.Entry<PRODUCTENTRYDETAIL>(ped).State = EntityState.Modified;
-                            context.SaveChanges();
+                            ped.idproducts = dto.idproducts;
+                            context.Entry<PRODUCTENTRYDETAIL>(ped).State = EntityState.Added;
+                            // context.SaveChanges();
 
                             PRODUCT product = context.PRODUCTS.FirstOrDefault(x => x.id == dto.idproducts);
 
@@ -92,12 +92,14 @@ namespace posrepository
                             else
                                 product.existence = product.existence - dto.quantity;
 
-                            context.Entry<PRODUCT>(product).State = EntityState.Modified;
+                            product.unitary_cost = dto.unitary_cost;
 
+                            context.Entry<PRODUCT>(product).State = EntityState.Modified;
                             context.SaveChanges();
                             transaction.Commit();
 
                             Logger.Info("PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT");
+                            return pe;
                         }
                         catch (Exception tex)
                         {
@@ -109,8 +111,8 @@ namespace posrepository
             }
             catch (Exception ex)
             {
-                pe.id = -1;
                 Logger.Error(ex.Message);
+                return null;
             }
             return pe;
         }
@@ -165,20 +167,23 @@ namespace posrepository
             return listProducts;
         }
 
-        public PRODUCT Update(PRODUCT productargument)
+        public PRODUCT Update(ProductDTO dto)
         {
             PRODUCT item = new PRODUCT();
             try
             {
+                if (dto.idproducts <= 0)
+                    return null;
+                
                 using (var context = new posContext())
                 {
-                    item = context.PRODUCTS.FirstOrDefault(x => x.id == productargument.id);
-                    item.name = productargument.name;
-                    item.barcode = productargument.barcode;
-                    item.idcstatus = productargument.idcstatus;
-                    item.price = productargument.price;
-                    item.unitary_cost= productargument.unitary_cost;
-                    item.existence = productargument.existence;
+                    item = context.PRODUCTS.FirstOrDefault(x => x.id == dto.idproducts);
+                    item.name = dto.name;
+                    item.barcode = dto.barcode;
+                    item.idcstatus = dto.idcstatus;
+                    item.price = dto.unitary_price;
+                    item.unitary_cost= dto.unitary_cost;
+                    item.existence = dto.existence;
                     context.Entry(item).State = EntityState.Modified;
                     context.SaveChanges();
                     Logger.Info("Product Update {0} ", item.id);

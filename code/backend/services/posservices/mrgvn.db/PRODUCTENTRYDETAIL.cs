@@ -19,6 +19,8 @@ namespace mrgvn.db
 
         public int idproducts { get; set; }
 
+        public virtual PRODUCTENTRy PRODUCTENTRy { get; set; }
+
         public virtual PRODUCT PRODUCT { get; set; }
     }
 }

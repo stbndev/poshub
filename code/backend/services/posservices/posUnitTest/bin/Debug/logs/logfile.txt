@@ -99,3 +99,7 @@
 2020-01-05 11:41:40.8161 posrepository.ProductsRepository.CreateEntry An error occurred while updating the entries. See the inner exception for details. 
 2020-01-05 11:50:26.7371 posrepository.ProductsRepository.CreateEntry Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions. 
 2020-01-05 11:51:47.7420 posrepository.ProductsRepository.CreateEntry Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions. 
+2020-01-05 17:37:40.9042 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-05 17:43:10.7847 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-05 17:44:09.5627 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-05 17:45:16.1360 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 

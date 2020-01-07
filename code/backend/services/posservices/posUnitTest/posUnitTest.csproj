@@ -83,6 +83,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\mrgvn.db\mrgvn.db.csproj">
+      <Project>{0ba2c4b9-f696-4f8e-acf0-392a4ee38dba}</Project>
+      <Name>mrgvn.db</Name>
+    </ProjectReference>
     <ProjectReference Include="..\posrepository\posrepository.csproj">
       <Project>{7b427dbf-8256-4b91-85f9-a3cf2aaf9ac9}</Project>
       <Name>posrepository</Name>

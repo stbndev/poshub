@@ -14,7 +14,7 @@ namespace posrepository.DTO
         public int idcstatus { get; set; }
         public long create_date { get; set; }
         public decimal unitary_cost { get; set; }
-        public decimal price { get; set; }
+        public decimal unitary_price { get; set; }
         public int existence { get; set; }
         public int quantity { get; set; }
         public string name { get; set; }

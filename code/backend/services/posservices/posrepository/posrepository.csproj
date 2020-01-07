@@ -80,6 +80,12 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\mrgvn.db\mrgvn.db.csproj">
+      <Project>{0ba2c4b9-f696-4f8e-acf0-392a4ee38dba}</Project>
+      <Name>mrgvn.db</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -9,6 +9,12 @@ namespace mrgvn.db
     [Table("PRODUCTENTRIES")]
     public partial class PRODUCTENTRy
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PRODUCTENTRy()
+        {
+            PRODUCTENTRYDETAILS = new HashSet<PRODUCTENTRYDETAIL>();
+        }
+
         public int id { get; set; }
 
         public decimal total { get; set; }
@@ -18,5 +24,8 @@ namespace mrgvn.db
         public int idcstatus { get; set; }
 
         public virtual CSTATU CSTATU { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRODUCTENTRYDETAIL> PRODUCTENTRYDETAILS { get; set; }
     }
 }

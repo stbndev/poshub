@@ -162,7 +162,12 @@ C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\System.Web.We
 C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\System.Web.WebPages.Razor.xml
 C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\Antlr3.Runtime.pdb
 C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\GitHub\poshub\code\backend\services\posservices\posservices\obj\Release\posservices.csprojAssemblyReference.cache
 C:\GitHub\poshub\code\backend\services\posservices\posservices\obj\Release\posservices.csproj.CopyComplete
 C:\GitHub\poshub\code\backend\services\posservices\posservices\obj\Release\posservices.dll
 C:\GitHub\poshub\code\backend\services\posservices\posservices\obj\Release\posservices.pdb
+C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\mrgvn.db.dll
+C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\EntityFramework.dll
+C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\mrgvn.db.pdb
+C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\mrgvn.db.dll.config
+C:\GitHub\poshub\code\backend\services\posservices\posservices\bin\EntityFramework.xml
+C:\GitHub\poshub\code\backend\services\posservices\posservices\obj\Release\posservices.csprojAssemblyReference.cache
