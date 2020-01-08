@@ -42,33 +42,30 @@ namespace posUnitTest
         //    Assert.IsTrue(item.id > 0, "Item add");
         //}
 
-        [TestMethod]
-        public void ProductUpdate_()
-        {
-            ProductDTO dto = new ProductDTO();
-            dto.
-            PRODUCT item = new PRODUCT();
-            item.id = this.id;
-            item.idcstatus = (int)CSTATUS.INACTIVO;
-            item.name = "SOL Tubi-Papa ORIGINAL";
-            item.price = (decimal)13;
-            item.cost = (decimal)9.7;
-            item.existence = 2;
-            item.barcode = "7503020501623";
-
-            IProducts products = new ProductsRepository();
-            item = products.Update(item);
-            Assert.IsTrue(item.id > 0, "Item update");
-        }
-
         //[TestMethod]
-        //public void Delete_()
+        //public void ProductUpdate_()
         //{
-        //    IProducts products = new ProductsRepository();
-        //    int idcstatus = (int)CSTATUS.INACTIVO;
-        //    bool flag = products.Delete(this.id, idcstatus);
-        //    Assert.IsTrue(flag, "Delete product");
+        //    ProductDTO dto = new ProductDTO();
+        //    dto.idproducts = 1 ;  
+        //    dto.name = "SOL Tubi-Papa ORIGINAL";
+        //    dto.barcode = "7503020501623";
+        //    dto.idcstatus = (int)(CSTATUS.INACTIVO);
+        //    dto.unitary_price = (decimal)14;
+        //    dto.existence = 1;
+
+        //    IProducts ctrlProduct = new ProductsRepository();
+        //    var item = ctrlProduct.Update(dto);
+        //    Assert.IsTrue(item.id > 0, "Item update");
         //}
+
+        [TestMethod]
+        public void Delete_()
+        {
+            IProducts products = new ProductsRepository();
+            int idcstatus = (int)CSTATUS.ELIMINADO;
+            bool flag = products.Delete(1, idcstatus);
+            Assert.IsTrue(flag, "Delete product");
+        }
 
     }
 }

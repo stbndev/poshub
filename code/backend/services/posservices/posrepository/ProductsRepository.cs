@@ -36,7 +36,7 @@ namespace posrepository
                     if (checkExist.Count() > 0)
                     {
                         Logger.Error("barcode unavailable: {0}", dto.barcode);
-                        p.id= 0;
+                        p.id = 0;
                     }
                     else
                     {
@@ -61,7 +61,7 @@ namespace posrepository
 
         public PRODUCTENTRy CreateEntry(ProductDTO dto)
         {
-            PRODUCTENTRy pe  = new PRODUCTENTRy();
+            PRODUCTENTRy pe = new PRODUCTENTRy();
             try
             {
                 using (var context = new posContext())
@@ -174,15 +174,15 @@ namespace posrepository
             {
                 if (dto.idproducts <= 0)
                     return null;
-                
+
                 using (var context = new posContext())
                 {
-                    item = context.PRODUCTS.FirstOrDefault(x => x.id == dto.idproducts);
+                    item = Read(id: dto.idproducts).FirstOrDefault();
                     item.name = dto.name;
                     item.barcode = dto.barcode;
                     item.idcstatus = dto.idcstatus;
                     item.price = dto.unitary_price;
-                    item.unitary_cost= dto.unitary_cost;
+                    item.unitary_cost = dto.unitary_cost == 0 ? item.unitary_cost : dto.unitary_cost;
                     item.existence = dto.existence;
                     context.Entry(item).State = EntityState.Modified;
                     context.SaveChanges();
