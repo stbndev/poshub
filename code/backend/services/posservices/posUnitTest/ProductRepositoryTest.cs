@@ -8,7 +8,6 @@ namespace posUnitTest
     [TestClass]
     public class ProductRepositoryTest
     {
-        public int id { get; set; } = 5;
 
         //[TestMethod]
         //public void ProductCreate_()
@@ -58,14 +57,37 @@ namespace posUnitTest
         //    Assert.IsTrue(item.id > 0, "Item update");
         //}
 
-        [TestMethod]
-        public void Delete_()
-        {
-            IProducts products = new ProductsRepository();
-            int idcstatus = (int)CSTATUS.ELIMINADO;
-            bool flag = products.Delete(1, idcstatus);
-            Assert.IsTrue(flag, "Delete product");
-        }
+        //[TestMethod]
+        //public void ProductEntryUpdate_()
+        //{
+        //    ProductDTO dto = new ProductDTO();
+        //    dto.idproductentries = 13;
+        //    dto.unitary_cost = (decimal)9.89;
+        //    dto.quantity = 10;
+        //    dto.idproducts = 1;
+        //    dto.idcstatus = (int)CSTATUS.ACTIVO;
+        //    IProducts ctrlProduct = new ProductsRepository();
+        //    var item = ctrlProduct.UpdateEntry(dto);
+        //    Assert.IsTrue(item.id > 0, "Item update");
+        //}
+
+        //[TestMethod]
+        //public void Delete_()
+        //{
+        //    IProducts products = new ProductsRepository();
+        //    int idcstatus = (int)CSTATUS.ELIMINADO;
+        //    bool flag = products.Delete(1, idcstatus);
+        //    Assert.IsTrue(flag, "Delete product");
+        //}
+
+        //[TestMethod]
+        //public void DeleteEntry_()
+        //{
+        //    IProducts products = new ProductsRepository();
+        //    int idcstatus = (int)CSTATUS.ELIMINADO;
+        //    bool flag = products.DeleteEntry(13);
+        //    Assert.IsTrue(flag, "Delete product");
+        //}
 
     }
 }

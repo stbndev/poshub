@@ -12,53 +12,149 @@ namespace posrepository
 {
     public interface IProducts
     {
+
         PRODUCT Create(ProductDTO dto);
         PRODUCTENTRy CreateEntry(ProductDTO dto);
         List<PRODUCT> Read(int id = 0, string barcode = "", int idcstatus = -100, decimal price = -100, decimal cost = -100, int existence = -100, bool all = false);
         PRODUCT Update(ProductDTO dto);
-        bool Delete(int id, int cstatus);
+        PRODUCTENTRy UpdateEntry(ProductDTO dto);
+
+        bool Delete(int id);
+        bool DeleteEntry(int id);
     }
 
     public class ProductsRepository : IProducts
     {
         private static readonly Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public PRODUCT Create(ProductDTO dto)
+        public bool DeleteEntry(int id)
         {
-            PRODUCT p = new PRODUCT();
+            bool flag = false;
             try
             {
                 using (var context = new posContext())
                 {
-                    // check if no exist barcode 
-                    var checkExist = Read(barcode: dto.barcode);
+                    using (var transaction = context.Database.BeginTransaction())
+                    {
+                        try
+                        {
+                            PRODUCTENTRy productentry = ReadEntry(id: id).FirstOrDefault();
+                            if (productentry.idcstatus != (int)CSTATUS.ELIMINADO)
+                            {
+                                productentry.idcstatus = (int)CSTATUS.ELIMINADO;
+                                //var productentrydetails = productentry.PRODUCTENTRYDETAILS.FirstOrDefault(x => x.idproductentries == id);
+                                 var productentrydetails = productentry.PRODUCTENTRYDETAILS.FirstOrDefault();
 
-                    if (checkExist.Count() > 0)
-                    {
-                        Logger.Error("barcode unavailable: {0}", dto.barcode);
-                        p.id = 0;
-                    }
-                    else
-                    {
-                        p.name = dto.name;
-                        p.barcode = dto.barcode;
-                        p.idcstatus = dto.idcstatus;
-                        p.price = dto.unitary_price;
-                        p.unitary_cost = dto.unitary_cost;
-                        p.existence = dto.existence;
-                        context.Entry(p).State = EntityState.Added;
-                        context.SaveChanges();
+                                var product = context.PRODUCTS.FirstOrDefault(x => x.id == productentrydetails.idproducts);
+                                var extractitems = product.existence - productentrydetails.quantity;
+                                product.existence = extractitems;
+                                context.Entry(product).State = EntityState.Modified;
+                                context.Entry(productentry).State = EntityState.Modified;
+                                context.SaveChanges();
+                                transaction.Commit();
+                                flag = true;
+                                Logger.Info(string.Format("PRODUCTENTRY DELETED {0} ", id));
+                                Logger.Info(string.Format("PRODUCT MINUS{0} ", productentrydetails.quantity));
+                            }
+                            else
+                                flag = false;
+                        }
+                        catch (Exception tex)
+                        {
+                            flag = false;
+                            transaction.Rollback();
+                            Logger.Error(tex.Message);
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                p.id = -1;
+                Logger.Error(ex.Message);
+                flag = false;
+            }
+            return flag;
+        }
+        public List<PRODUCTENTRy> ReadEntry(int id = 0, bool all = false)
+        {
+            List<PRODUCTENTRy> listItems = new List<PRODUCTENTRy>();
+            try
+            {
+                using (var context = new posContext())
+                {
+                    // filters 
+                    if (all)
+                        listItems = context.PRODUCTENTRIES.Include(x => x.PRODUCTENTRYDETAILS).ToList();
+                    else if (id > 0)
+                        listItems = context.PRODUCTENTRIES.Include(x => x.PRODUCTENTRYDETAILS).Where(x => x.id == id).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
                 Logger.Error(ex.Message);
             }
-            return p;
+            return listItems;
         }
 
+        public PRODUCTENTRy UpdateEntry(ProductDTO dto)
+        {
+            PRODUCTENTRy productEntryDB = new PRODUCTENTRy();
+            try
+            {
+                if (dto.idproductentries <= 0)
+                    return null;
+
+                using (var context = new posContext())
+                {
+                    using (var transaction = context.Database.BeginTransaction())
+                    {
+                        try
+                        {
+                            productEntryDB = ReadEntry(id: dto.idproductentries).FirstOrDefault();
+                            PRODUCTENTRYDETAIL productEntrydetailDB = productEntryDB.PRODUCTENTRYDETAILS.FirstOrDefault();
+                            PRODUCT productDB = context.PRODUCTS.FirstOrDefault(x => x.id == productEntrydetailDB.idproducts);
+
+
+                            if (productEntryDB.idcstatus != dto.idcstatus)
+                            {
+                                if (dto.idcstatus == (int)CSTATUS.ACTIVO)
+                                    productDB.existence = (productDB.existence + productEntrydetailDB.quantity);
+                                else
+                                    productDB.existence = (productDB.existence - dto.quantity);
+                            }
+
+
+                            productEntrydetailDB.quantity = dto.quantity;
+                            productEntrydetailDB.unitary_cost = dto.unitary_cost;
+                            productEntryDB.total = dto.unitary_cost * dto.quantity;
+                            productEntryDB.idcstatus = dto.idcstatus;
+                            productDB.unitary_cost = dto.unitary_cost;
+
+                            context.Entry<PRODUCTENTRy>(productEntryDB).State = EntityState.Modified;
+                            context.Entry<PRODUCTENTRYDETAIL>(productEntrydetailDB).State = EntityState.Modified;
+                            context.Entry<PRODUCT>(productDB).State = EntityState.Modified;
+                            context.SaveChanges();
+
+                            transaction.Commit();
+                            //Logger.Info("PRODUCTENTRIES: id {0} total {1} create_date {2} idcstatus {3}", productEntryDB.id, productEntryDB.total, productEntryDB.create_date, productEntryDB.idcstatus);
+                            Logger.Info(dto  + "Set");
+                        }
+                        catch (Exception tex)
+                        {
+                            transaction.Rollback();
+                            Logger.Error(tex.Message);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // productEntryParam.id = -1;
+                Logger.Error(ex.Message);
+                return null;
+            }
+            return productEntryDB;
+        }
         public PRODUCTENTRy CreateEntry(ProductDTO dto)
         {
             PRODUCTENTRy pe = new PRODUCTENTRy();
@@ -116,19 +212,53 @@ namespace posrepository
             }
             return pe;
         }
+        public PRODUCT Create(ProductDTO dto)
+        {
+            PRODUCT p = new PRODUCT();
+            try
+            {
+                using (var context = new posContext())
+                {
+                    // check if no exist barcode 
+                    var checkExist = Read(barcode: dto.barcode);
 
-        public bool Delete(int id, int cstatus)
+                    if (checkExist.Count() > 0)
+                    {
+                        Logger.Error("barcode unavailable: {0}", dto.barcode);
+                        p.id = 0;
+                    }
+                    else
+                    {
+                        p.name = dto.name;
+                        p.barcode = dto.barcode;
+                        p.idcstatus = dto.idcstatus;
+                        p.price = dto.unitary_price;
+                        p.unitary_cost = dto.unitary_cost;
+                        p.existence = dto.existence;
+                        context.Entry(p).State = EntityState.Added;
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                p.id = -1;
+                Logger.Error(ex.Message);
+            }
+            return p;
+        }
+        public bool Delete(int id)
         {
             try
             {
                 using (var context = new posContext())
                 {
                     var item = Read(id: id).FirstOrDefault();
-                    item.idcstatus = cstatus;
+                    item.idcstatus = (int)CSTATUS.ELIMINADO;
                     context.Entry(item).State = EntityState.Modified;
                     context.SaveChanges();
                 }
-                Logger.Info(string.Format("Product:{0} cstatus:{1}", id, cstatus));
+                Logger.Info(string.Format("Product:{0} cstatus:{1}", id, CSTATUS.ELIMINADO));
                 return true;
             }
             catch (Exception ex)
@@ -170,11 +300,10 @@ namespace posrepository
         public PRODUCT Update(ProductDTO dto)
         {
             PRODUCT item = new PRODUCT();
+            if (dto.idproducts <= 0)
+                return null;
             try
             {
-                if (dto.idproducts <= 0)
-                    return null;
-
                 using (var context = new posContext())
                 {
                     item = Read(id: dto.idproducts).FirstOrDefault();
@@ -196,5 +325,7 @@ namespace posrepository
             }
             return item;
         }
+
+        
     }
 }

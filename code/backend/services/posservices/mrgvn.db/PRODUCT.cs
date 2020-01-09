@@ -13,6 +13,7 @@ namespace mrgvn.db
         public PRODUCT()
         {
             PRODUCTENTRYDETAILS = new HashSet<PRODUCTENTRYDETAIL>();
+            SALEDETAILS = new HashSet<SALEDETAIL>();
         }
 
         public int id { get; set; }
@@ -37,5 +38,8 @@ namespace mrgvn.db
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCTENTRYDETAIL> PRODUCTENTRYDETAILS { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SALEDETAIL> SALEDETAILS { get; set; }
     }
 }

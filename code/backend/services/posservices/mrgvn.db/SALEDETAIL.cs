@@ -9,7 +9,6 @@ namespace mrgvn.db
     [Table("SALEDETAILS")]
     public partial class SALEDETAIL
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
         public int idsales { get; set; }
@@ -21,6 +20,8 @@ namespace mrgvn.db
         public int quantity { get; set; }
 
         public int idproducts { get; set; }
+
+        public virtual PRODUCT PRODUCT { get; set; }
 
         public virtual SALE SALE { get; set; }
     }

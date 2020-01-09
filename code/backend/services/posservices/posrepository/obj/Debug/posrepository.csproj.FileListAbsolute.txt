@@ -21,7 +21,10 @@ C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\posre
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\posrepository.pdb
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\EntityFramework.dll
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\mrgvn.db.dll
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\NLog.dll
+C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\mrgvn.db.pdb
+C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\mrgvn.db.dll.config
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\EntityFramework.xml
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\EntityFramework.SqlServer.xml
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\NLog.xml
@@ -29,6 +32,3 @@ C:\GitHub\poshub\code\backend\services\posservices\posrepository\obj\Debug\posre
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\obj\Debug\posrepository.csproj.CopyComplete
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\obj\Debug\posrepository.exe
 C:\GitHub\poshub\code\backend\services\posservices\posrepository\obj\Debug\posrepository.pdb
-C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\mrgvn.db.dll
-C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\mrgvn.db.pdb
-C:\GitHub\poshub\code\backend\services\posservices\posrepository\bin\Debug\mrgvn.db.dll.config

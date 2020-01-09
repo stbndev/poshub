@@ -93,6 +93,12 @@ namespace mrgvn.db
                 .HasForeignKey(e => e.idproducts)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<PRODUCT>()
+                .HasMany(e => e.SALEDETAILS)
+                .WithRequired(e => e.PRODUCT)
+                .HasForeignKey(e => e.idproducts)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<SALEDETAIL>()
                 .Property(e => e.unitary_cost)
                 .HasPrecision(10, 2);

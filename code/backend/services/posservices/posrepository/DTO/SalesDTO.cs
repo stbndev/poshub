@@ -8,11 +8,12 @@ namespace posrepository.DTO
 {
     public class SalesDTO
     {
-        public int idsales { get; set; }
+        
         public decimal total { get; set; }
         public int idcstatus { get; set; }
         public string maker { get; set; }
-        
+        public int idsales { get; set; }
+
         public List<SalesDetailsDTO> details { get; set; }
     }
 
@@ -23,8 +24,6 @@ namespace posrepository.DTO
         public decimal unitary_price { get; set; }
         public int quantity { get; set; }
         public int idproducts { get; set; }
-
-
 
     }
 }

@@ -17,12 +17,21 @@ namespace posUnitTest
         //    sDTO.total = 0;
         //    sDTO.idcstatus = (int)CSTATUS.ACTIVO;
         //    sDTO.maker = "TestClass";
+        //    sDTO.details = new List<SalesDetailsDTO>();
+
         //    SalesDetailsDTO sdDTO = new SalesDetailsDTO();
         //    sdDTO.unitary_price = 0;
         //    sdDTO.quantity = 1;
         //    sdDTO.idproducts = 1;
-        //    sDTO.details = new List<SalesDetailsDTO>();
+
+        //    SalesDetailsDTO sdDTO2 = new SalesDetailsDTO();
+        //    sdDTO2.unitary_price = 0;
+        //    sdDTO2.quantity = 1;
+        //    sdDTO2.idproducts = 2;
+
+
         //    sDTO.details.Add(sdDTO);
+        //    sDTO.details.Add(sdDTO2);
 
         //    ISales ctrlSales = new SalesRepository();
         //    var result = ctrlSales.Create(sDTO);
@@ -33,30 +42,40 @@ namespace posUnitTest
         //public void Delete_()
         //{
         //    ISales isr = new SalesRepository();
-        //    var item = isr.Delete(0);
+        //    var item = isr.Delete(5);
         //    Assert.IsTrue(item, "Item delete");
         //}
 
-        //[TestMethod]
-        //public void Update_()
-        //{
-        //ProductEntriesDTO productEntriesDTO = new ProductEntriesDTO();
-        //productEntriesDTO.idcstatus = (int)CSTATUS.ACTIVO;
-        //productEntriesDTO.unitary_cost = (decimal)10.77; 
-        //productEntriesDTO.quantity = 60;
-        //productEntriesDTO.idproducts = 1;
-        //productEntriesDTO.idproductentries = 1;
-
-        //IProductentries productentries = new ProductentriesRepository();
-        //var item = productentries.Update(productEntriesDTO);
-        //Assert.IsTrue(item.id > 0, "Item et");
-        //}
-
-        private long ConvertToTimestamp(DateTime value)
+        [TestMethod]
+        public void Update_()
         {
-            long epoch = (value.Ticks - 621355968000000000) / 10000000;
-            return epoch;
+            SalesDTO salesDTO = new SalesDTO();
+            salesDTO.idsales = 5;
+            salesDTO.idcstatus = (int)CSTATUS.ACTIVO;
+            salesDTO.maker = "TestClass.TestMethod";
+            salesDTO.details = new List<SalesDetailsDTO>();
+
+            SalesDetailsDTO sdDTO = new SalesDetailsDTO();
+            sdDTO.quantity = 3;
+            sdDTO.idproducts = 2;
+
+            SalesDetailsDTO sdDTO2 = new SalesDetailsDTO();
+            sdDTO2.quantity = 4;
+            sdDTO2.idproducts = 1;
+
+            salesDTO.details.Add(sdDTO);
+            salesDTO.details.Add(sdDTO2);
+
+            ISales ctrlSales = new SalesRepository();
+            var result = ctrlSales.Update(salesDTO);
+            Assert.IsTrue(result.id > 0, "OK success");
         }
+
+        //private long ConvertToTimestamp(DateTime value)
+        //{
+        //    long epoch = (value.Ticks - 621355968000000000) / 10000000;
+        //    return epoch;
+        //}
 
         //[TestMethod]
         //public void Update_()

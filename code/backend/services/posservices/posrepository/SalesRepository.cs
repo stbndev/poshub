@@ -14,7 +14,7 @@ namespace posrepository
     {
         SALE Create(SalesDTO dto);
         List<SALE> Read(int id = 0, bool all = false);
-        SALE Update(SALE sale);
+        SALE Update(SalesDTO dto);
         bool Delete(int id);
     }
 
@@ -51,11 +51,15 @@ namespace posrepository
                                 saledetails.quantity = item.quantity;
                                 saledetails.idproducts = item.idproducts;
                                 context.Entry<SALEDETAIL>(saledetails).State = EntityState.Added;
+                                //context.SaveChanges();
                                 tmptotal = tmptotal + (saledetails.unitary_price * saledetails.quantity);
                                 product.existence = product.existence - item.quantity;
                                 context.Entry<PRODUCT>(product).State = EntityState.Modified;
+                                context.SaveChanges();
+
                             }
                             sale.total = tmptotal;
+                            context.Entry<SALE>(sale).State = EntityState.Modified;
                             context.SaveChanges();
                             transaction.Commit();
                             Logger.Info("PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT");
@@ -98,8 +102,8 @@ namespace posrepository
                                 sale.idcstatus = (int)CSTATUS.ELIMINADO;
                                 sale.modification_date = PosUtil.ConvertToTimestamp(DateTime.Now);
                                 //  PRODUCT product = context.PRODUCTS.FirstOrDefault(x => x.id == item.idproducts);
-                                //PRODUCT product = item.PRODUCT;
-                                PRODUCT product = new PRODUCT();
+                                PRODUCT product = item.PRODUCT;
+                                //PRODUCT product = new PRODUCT();
                                 product.existence = product.existence + item.quantity;
                                 context.Entry<PRODUCT>(product).State = EntityState.Modified;
                                 context.SaveChanges();
@@ -129,17 +133,17 @@ namespace posrepository
             List<SALE> sales = new List<SALE>();
             try
             {
-                //using (var context = new posContext())
-                //{
-                //    // filters 
-                //    if (all)
-                //        sales = context.SALES.
-                //            Include(x => x.SALEDETAILS).ToList();
-                //    //Include(x => x.SALEDETAILS.Select(sd => sd.PRODUCT)).ToList();
-                //    else if (id >= 0)
-                //        sales = context.SALES.Include(x => x.SALEDETAILS).ToList();
-                //    //Include(x => x.SALEDETAILS.Select(sd => sd.PRODUCT)).Where(x => x.id == id).ToList();
-                //}
+                using (var context = new posContext())
+                {
+                    // filters 
+                    if (all)
+                        sales = context.SALES.
+                                       Include(x => x.SALEDETAILS).
+                                       Include(x => x.SALEDETAILS.Select(sd => sd.PRODUCT)).ToList();
+                    else if (id >= 0)
+                        sales = context.SALES.Include(x => x.SALEDETAILS).
+                                              Include(x => x.SALEDETAILS.Select(sd => sd.PRODUCT)).Where(x => x.id == id).ToList();
+                }
             }
             catch (Exception ex)
             {
@@ -148,9 +152,85 @@ namespace posrepository
             return sales;
         }
 
-        public SALE Update(SALE sale)
+        public SALE Update(SalesDTO dto)
         {
-            throw new NotImplementedException();
+            SALE sale = new SALE();
+            if (dto.idsales <= 0)
+                return null;
+
+            try
+            {
+                using (var context = new posContext())
+                {
+                    using (var transaction = context.Database.BeginTransaction())
+                    {
+                        try
+                        {
+                            sale = Read(id: dto.idsales).FirstOrDefault();
+                            sale.idcstatus = dto.idcstatus;
+                            sale.maker = dto.maker;
+                            sale.modification_date = PosUtil.ConvertToTimestamp(DateTime.Now);
+                            decimal tmptotal = 0;
+
+                            List<SALEDETAIL> saledetails = sale.SALEDETAILS.ToList();
+                            foreach (var item in saledetails)
+                            {
+                                foreach (var itemB in dto.details)
+                                {
+                                    if(item.idproducts == itemB.idproducts) 
+                                    {
+                                        item.quantity = itemB.quantity;
+                                        tmptotal = tmptotal + (item.unitary_price * item.quantity);
+                                        if (dto.idcstatus == (int)CSTATUS.ACTIVO)
+                                        {
+                                            item.PRODUCT.existence = product.existence - item.quantity;
+
+
+                                        }
+
+                                    }
+                                }
+                            }
+
+
+
+                            foreach (var item in dto.details)
+                            {
+                                PRODUCT product = context.PRODUCTS.FirstOrDefault(x => x.id == item.idproducts);
+                                SALEDETAIL saledetails = new SALEDETAIL();
+                                saledetails.idsales = sale.id;
+                                saledetails.unitary_cost = product.unitary_cost;
+                                saledetails.unitary_price = product.price;
+                                saledetails.quantity =  item.quantity;
+                                saledetails.idproducts = item.idproducts;
+                                context.Entry<SALEDETAIL>(saledetails).State = EntityState.Added;
+                                //context.SaveChanges();
+                                tmptotal = tmptotal + (saledetails.unitary_price * saledetails.quantity);
+                                product.existence = product.existence - item.quantity;
+                                context.Entry<PRODUCT>(product).State = EntityState.Modified;
+                                context.SaveChanges();
+
+                            }
+                            sale.total = tmptotal;
+                            context.Entry<SALE>(sale).State = EntityState.Modified;
+                            context.SaveChanges();
+                            transaction.Commit();
+                            Logger.Info("PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT");
+                        }
+                        catch (Exception tex)
+                        {
+                            transaction.Rollback();
+                            Logger.Error(tex.Message);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                sale.id = -1;
+                Logger.Error(ex.Message);
+            }
+            return sale;
         }
     }
 }

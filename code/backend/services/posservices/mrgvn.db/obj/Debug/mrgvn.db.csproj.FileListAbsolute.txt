@@ -1,11 +1,11 @@
+C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\bin\Debug\mrgvn.db.dll.config
 C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\bin\Debug\mrgvn.db.dll
 C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\bin\Debug\mrgvn.db.pdb
-C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\obj\Debug\mrgvn.db.dll
-C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\obj\Debug\mrgvn.db.pdb
-C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\bin\Debug\mrgvn.db.dll.config
 C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\bin\Debug\EntityFramework.dll
 C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\bin\Debug\EntityFramework.SqlServer.dll
 C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\bin\Debug\EntityFramework.xml
 C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\bin\Debug\EntityFramework.SqlServer.xml
 C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\obj\Debug\mrgvn.db.csproj.CopyComplete
+C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\obj\Debug\mrgvn.db.dll
+C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\obj\Debug\mrgvn.db.pdb
 C:\GitHub\poshub\code\backend\services\posservices\mrgvn.db\obj\Debug\mrgvn.db.csprojAssemblyReference.cache
