@@ -47,7 +47,7 @@ namespace posrepository
                                 SALEDETAIL saledetails = new SALEDETAIL();
                                 saledetails.idsales = sale.id;
                                 saledetails.unitary_cost = product.unitary_cost;
-                                saledetails.unitary_price = product.price;
+                                saledetails.unitary_price = product.unitary_price;
                                 saledetails.quantity = item.quantity;
                                 saledetails.idproducts = item.idproducts;
                                 context.Entry<SALEDETAIL>(saledetails).State = EntityState.Added;
@@ -177,42 +177,25 @@ namespace posrepository
                             {
                                 foreach (var itemB in dto.details)
                                 {
-                                    if(item.idproducts == itemB.idproducts) 
+                                    if (item.idproducts == itemB.idproducts)
                                     {
                                         item.quantity = itemB.quantity;
                                         tmptotal = tmptotal + (item.unitary_price * item.quantity);
                                         if (dto.idcstatus == (int)CSTATUS.ACTIVO)
-                                        {
-                                            item.PRODUCT.existence = product.existence - item.quantity;
+                                            item.PRODUCT.existence = item.PRODUCT.existence - item.quantity;
+                                        else
+                                            item.PRODUCT.existence = item.PRODUCT.existence + item.quantity;
 
-
-                                        }
-
+                                        context.Entry<SALEDETAIL>(item).State = EntityState.Modified;
+                                        context.Entry<PRODUCT>(item.PRODUCT).State = EntityState.Modified;
+                                        context.SaveChanges();
                                     }
                                 }
                             }
-
-
-
-                            foreach (var item in dto.details)
-                            {
-                                PRODUCT product = context.PRODUCTS.FirstOrDefault(x => x.id == item.idproducts);
-                                SALEDETAIL saledetails = new SALEDETAIL();
-                                saledetails.idsales = sale.id;
-                                saledetails.unitary_cost = product.unitary_cost;
-                                saledetails.unitary_price = product.price;
-                                saledetails.quantity =  item.quantity;
-                                saledetails.idproducts = item.idproducts;
-                                context.Entry<SALEDETAIL>(saledetails).State = EntityState.Added;
-                                //context.SaveChanges();
-                                tmptotal = tmptotal + (saledetails.unitary_price * saledetails.quantity);
-                                product.existence = product.existence - item.quantity;
-                                context.Entry<PRODUCT>(product).State = EntityState.Modified;
-                                context.SaveChanges();
-
-                            }
                             sale.total = tmptotal;
                             context.Entry<SALE>(sale).State = EntityState.Modified;
+                            
+
                             context.SaveChanges();
                             transaction.Commit();
                             Logger.Info("PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT");

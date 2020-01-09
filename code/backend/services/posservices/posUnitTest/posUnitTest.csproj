@@ -68,9 +68,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProductRepositoryTest.cs" />
+    <Compile Include="Repository\ProductRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaleTest.cs" />
+    <Compile Include="Repository\LostItemsRepositoryTest.cs" />
+    <Compile Include="Repository\SaleTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

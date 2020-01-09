@@ -20,5 +20,7 @@ namespace mrgvn.db
         public int quantity { get; set; }
 
         public virtual LOSTITEM LOSTITEM { get; set; }
+
+        public virtual PRODUCT PRODUCT { get; set; }
     }
 }

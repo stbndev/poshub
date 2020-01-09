@@ -32,6 +32,12 @@ namespace mrgvn.db
                 .IsUnicode(false);
 
             modelBuilder.Entity<CSTATU>()
+                .HasMany(e => e.LOSTITEMS)
+                .WithRequired(e => e.CSTATU)
+                .HasForeignKey(e => e.idcstatus)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CSTATU>()
                 .HasMany(e => e.PRODUCTENTRIES)
                 .WithRequired(e => e.CSTATU)
                 .HasForeignKey(e => e.idcstatus)
@@ -50,6 +56,10 @@ namespace mrgvn.db
             modelBuilder.Entity<LOSTITEM>()
                 .Property(e => e.total)
                 .HasPrecision(10, 2);
+
+            modelBuilder.Entity<LOSTITEM>()
+                .Property(e => e.maker)
+                .IsUnicode(false);
 
             modelBuilder.Entity<LOSTITEM>()
                 .HasMany(e => e.LOSTITEMDETAILS)
@@ -80,12 +90,18 @@ namespace mrgvn.db
                 .IsUnicode(false);
 
             modelBuilder.Entity<PRODUCT>()
-                .Property(e => e.price)
+                .Property(e => e.unitary_price)
                 .HasPrecision(10, 2);
 
             modelBuilder.Entity<PRODUCT>()
                 .Property(e => e.unitary_cost)
                 .HasPrecision(10, 2);
+
+            modelBuilder.Entity<PRODUCT>()
+                .HasMany(e => e.LOSTITEMDETAILS)
+                .WithRequired(e => e.PRODUCT)
+                .HasForeignKey(e => e.idproducts)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PRODUCT>()
                 .HasMany(e => e.PRODUCTENTRYDETAILS)

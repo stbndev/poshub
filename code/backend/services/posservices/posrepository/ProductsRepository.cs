@@ -232,7 +232,7 @@ namespace posrepository
                         p.name = dto.name;
                         p.barcode = dto.barcode;
                         p.idcstatus = dto.idcstatus;
-                        p.price = dto.unitary_price;
+                        p.unitary_price = dto.unitary_price;
                         p.unitary_cost = dto.unitary_cost;
                         p.existence = dto.existence;
                         context.Entry(p).State = EntityState.Added;
@@ -310,7 +310,7 @@ namespace posrepository
                     item.name = dto.name;
                     item.barcode = dto.barcode;
                     item.idcstatus = dto.idcstatus;
-                    item.price = dto.unitary_price;
+                    item.unitary_price = dto.unitary_price;
                     item.unitary_cost = dto.unitary_cost == 0 ? item.unitary_cost : dto.unitary_cost;
                     item.existence = dto.existence;
                     context.Entry(item).State = EntityState.Modified;

@@ -46,30 +46,30 @@ namespace posUnitTest
         //    Assert.IsTrue(item, "Item delete");
         //}
 
-        [TestMethod]
-        public void Update_()
-        {
-            SalesDTO salesDTO = new SalesDTO();
-            salesDTO.idsales = 5;
-            salesDTO.idcstatus = (int)CSTATUS.ACTIVO;
-            salesDTO.maker = "TestClass.TestMethod";
-            salesDTO.details = new List<SalesDetailsDTO>();
+        //[TestMethod]
+        //public void Update_()
+        //{
+        //    SalesDTO salesDTO = new SalesDTO();
+        //    salesDTO.idsales = 5;
+        //    salesDTO.idcstatus = (int)CSTATUS.ACTIVO;
+        //    salesDTO.maker = "TestClass.TestMethod";
+        //    salesDTO.details = new List<SalesDetailsDTO>();
 
-            SalesDetailsDTO sdDTO = new SalesDetailsDTO();
-            sdDTO.quantity = 3;
-            sdDTO.idproducts = 2;
+        //    SalesDetailsDTO sdDTO = new SalesDetailsDTO();
+        //    sdDTO.quantity = 3;
+        //    sdDTO.idproducts = 2;
 
-            SalesDetailsDTO sdDTO2 = new SalesDetailsDTO();
-            sdDTO2.quantity = 4;
-            sdDTO2.idproducts = 1;
+        //    SalesDetailsDTO sdDTO2 = new SalesDetailsDTO();
+        //    sdDTO2.quantity = 4;
+        //    sdDTO2.idproducts = 1;
 
-            salesDTO.details.Add(sdDTO);
-            salesDTO.details.Add(sdDTO2);
+        //    salesDTO.details.Add(sdDTO);
+        //    salesDTO.details.Add(sdDTO2);
 
-            ISales ctrlSales = new SalesRepository();
-            var result = ctrlSales.Update(salesDTO);
-            Assert.IsTrue(result.id > 0, "OK success");
-        }
+        //    ISales ctrlSales = new SalesRepository();
+        //    var result = ctrlSales.Update(salesDTO);
+        //    Assert.IsTrue(result.id > 0, "OK success");
+        //}
 
         //private long ConvertToTimestamp(DateTime value)
         //{
