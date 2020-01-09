@@ -1,0 +1,126 @@
+2019-12-27 18:55:44.5097 posrepository.ProductsRepository Create barcode unavailable: 750302050166 
+2019-12-27 19:00:17.0220 posrepository.ProductsRepository posrepository.ProductsRepository.Create Create barcode unavailable: 750302050166 
+2019-12-27 19:01:53.9582 posrepository.ProductsRepository.Create Create barcode unavailable: 750302050166 
+2019-12-27 19:01:54.5631 posrepository.ProductsRepository.Delete Delete Product:1 cstatus:2 
+2019-12-27 19:20:55.1359 posrepository.ProductsRepository.Create barcode unavailable: 750302050166 
+2019-12-27 19:20:55.3219 posrepository.ProductsRepository.Update Product Update 0  
+2019-12-27 19:20:56.3534 posrepository.ProductsRepository.Update Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions. 
+2019-12-27 19:22:02.5973 posrepository.ProductsRepository.Create barcode unavailable: 750302050166 
+2019-12-27 19:23:16.6202 posrepository.ProductsRepository.Update The operation cannot be completed because the DbContext has been disposed. 
+2019-12-27 21:19:25.3338 posrepository.ProductsRepository.Create barcode unavailable: 7503020501661 
+2019-12-27 21:19:25.9100 posrepository.ProductsRepository.Update Product Update 1  
+2019-12-27 21:30:16.8449 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-27 21:30:17.0838 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2019-12-27 21:32:10.9688 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2019-12-27 21:33:21.1768 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-27 21:33:22.1351 posrepository.ProductsRepository.Delete Product:4 cstatus:2 
+2019-12-27 21:33:22.1771 posrepository.ProductsRepository.Update Product Update 4  
+2019-12-27 21:34:21.2136 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-27 21:34:22.0095 posrepository.ProductsRepository.Delete Product:4 cstatus:2 
+2019-12-27 21:34:22.0415 posrepository.ProductsRepository.Update Product Update 4  
+2019-12-27 21:35:09.2297 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-27 21:35:09.6167 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2019-12-28 00:38:11.2424 posrepository.ProductentriesRepository.Create idproducts 4 quantity 10 unitary_cost 4.5 
+2019-12-28 00:38:11.8135 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-28 00:38:12.1856 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2019-12-28 00:55:57.1802 posrepository.ProductentriesRepository.Create idproducts 4 quantity 10 unitary_cost 4.5 
+2019-12-28 00:55:57.9893 posrepository.ProductentriesRepository.Update PRODUCTENTRy Update 1  
+2019-12-28 00:55:58.1373 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-28 00:55:58.2813 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2019-12-28 01:02:19.9190 posrepository.ProductentriesRepository.Create idproducts 4 quantity 10 unitary_cost 4.5 
+2019-12-28 01:02:20.2340 posrepository.ProductentriesRepository.Update PRODUCTENTRy Update 1  
+2019-12-28 01:02:20.2950 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-28 01:02:20.4180 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2019-12-28 20:41:07.0379 posrepository.ProductentriesRepository.Create id 5 total 5 create_date 615 idcstatus 4 
+2019-12-28 20:41:07.7389 posrepository.ProductentriesRepository.Create id 3 idproductentries 5 unity_cost 9 quantity 10 idproducts 4 
+2019-12-28 20:41:23.2700 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-28 20:42:53.3406 posrepository.ProductentriesRepository.Create id 6 total 5 create_date 605 idcstatus 4 
+2019-12-28 20:42:53.4056 posrepository.ProductentriesRepository.Create id 2 idproductentries 6 unity_cost 9 quantity 10 idproducts 4 
+2019-12-28 20:44:37.8265 posrepository.ProductentriesRepository.Create id 7 total 5 create_date 154 idcstatus 4 
+2019-12-28 20:44:37.8904 posrepository.ProductentriesRepository.Create id 0 idproductentries 0 unity_cost 9 quantity 10 idproducts 4 
+2019-12-28 21:17:03.5085 posrepository.ProductentriesRepository.Create id 8 total 5 create_date 1577567823 idcstatus 4 
+2019-12-28 21:17:03.5645 posrepository.ProductentriesRepository.Create id 0 idproductentries 0 unity_cost 9 quantity 10 idproducts 4 
+2019-12-30 20:02:23.9785 posrepository.ProductentriesRepository.Create PRODUCTENTRIES: id 15 total 95.0 create_date 1577736119 idcstatus 1 
+2019-12-30 20:02:24.5364 posrepository.ProductentriesRepository.Create PRODUCTENTRYDETAILS: id 2 idproductentries 15 unity_cost 9.5 quantity 10 idproducts 4 
+2019-12-30 20:02:24.9354 posrepository.ProductentriesRepository.Create PRODUCTS: id 4 idcstatus2 existence12 
+2019-12-30 20:04:26.8722 posrepository.ProductentriesRepository.Create PRODUCTENTRIES: id 16 total 95.0 create_date 1577736266 idcstatus 1 
+2019-12-30 20:04:26.9332 posrepository.ProductentriesRepository.Create PRODUCTENTRYDETAILS: id 1 idproductentries 16 unity_cost 9.5 quantity 10 idproducts 4 
+2019-12-30 20:04:26.9512 posrepository.ProductentriesRepository.Create PRODUCTS: id 4 idcstatus2 existence22 
+2019-12-30 20:05:00.6272 posrepository.ProductentriesRepository.Create PRODUCTENTRIES: id 17 total 95.0 create_date 1577736299 idcstatus 1 
+2019-12-30 20:05:00.6892 posrepository.ProductentriesRepository.Create PRODUCTENTRYDETAILS: id 2 idproductentries 17 unity_cost 9.5 quantity 10 idproducts 4 
+2019-12-30 20:05:00.7201 posrepository.ProductentriesRepository.Create PRODUCTS: id 4 idcstatus2 existence32 
+2019-12-30 20:05:36.2641 posrepository.ProductentriesRepository.Create PRODUCTENTRIES: id 18 total 95.0 create_date 1577736335 idcstatus 1 
+2019-12-30 20:05:36.3260 posrepository.ProductentriesRepository.Create PRODUCTENTRYDETAILS: id 1 idproductentries 18 unity_cost 9.5 quantity 10 idproducts 4 
+2019-12-30 20:05:36.3440 posrepository.ProductentriesRepository.Create PRODUCTS: id 4 idcstatus2 existence42 
+2019-12-30 20:32:47.8798 posrepository.ProductentriesRepository.Delete PRODUCTENTRY DELETED 18  
+2019-12-30 20:32:47.9558 posrepository.ProductentriesRepository.Delete PRODUCT MINUS10  
+2019-12-30 20:33:59.8915 posrepository.ProductentriesRepository.Delete PRODUCTENTRY DELETED 18  
+2019-12-30 20:33:59.9735 posrepository.ProductentriesRepository.Delete PRODUCT MINUS10  
+2019-12-30 20:34:32.9398 posrepository.ProductentriesRepository.Delete PRODUCTENTRY DELETED 18  
+2019-12-30 20:34:32.9938 posrepository.ProductentriesRepository.Delete PRODUCT MINUS10  
+2019-12-30 20:39:54.8120 posrepository.ProductentriesRepository.Delete PRODUCTENTRY DELETED 18  
+2019-12-30 20:39:54.8740 posrepository.ProductentriesRepository.Delete PRODUCT MINUS10  
+2019-12-30 22:15:24.0196 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-30 22:17:16.8269 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-30 22:24:45.7483 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-30 22:26:35.7058 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-30 22:28:04.9475 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-30 23:01:46.7596 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 24 total 59.5 create_date 1577744794 idcstatus 2 
+2019-12-30 23:05:29.8604 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-30 23:16:37.8938 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-31 12:31:50.3180 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-31 12:40:56.9931 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-31 12:40:57.1861 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-31 12:48:34.0761 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 54.39 create_date 1577796056 idcstatus 2 
+2019-12-31 12:48:34.2910 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-31 12:49:55.6091 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 54.39 create_date 1577796056 idcstatus 1 
+2019-12-31 12:49:55.7491 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-31 15:13:23.7991 posrepository.ProductentriesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2019-12-31 15:13:24.0321 posrepository.ProductsRepository.Create barcode unavailable: 7503020501623 
+2019-12-31 17:23:13.9235 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 27 total 54.39 create_date 1577805203 idcstatus 2 
+2019-12-31 17:26:33.4687 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 27 total 54.39 create_date 1577805203 idcstatus 2 
+2019-12-31 17:30:33.7894 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 27 total 54.39 create_date 1577805203 idcstatus 2 
+2019-12-31 17:32:51.1655 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 27 total 977.00 create_date 1577805203 idcstatus 1 
+2019-12-31 18:11:49.1385 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 27 total 488.50 create_date 1577805203 idcstatus 3 
+2019-12-31 20:54:22.6610 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 538.50 create_date 1577796056 idcstatus 2 
+2019-12-31 21:54:11.8910 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 646.20 create_date 1577796056 idcstatus 2 
+2019-12-31 23:38:08.9753 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 646.20 create_date 1577796056 idcstatus 2 
+2019-12-31 23:38:48.7252 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 646.20 create_date 1577796056 idcstatus 2 
+2019-12-31 23:40:05.8972 posrepository.ProductentriesRepository.Update PRODUCTENTRIES: id 1 total 646.20 create_date 1577796056 idcstatus 1 
+2020-01-02 18:06:03.6965 posrepository.ProductentriesRepository.Delete PRODUCTENTRY DELETED 27  
+2020-01-02 18:06:04.2495 posrepository.ProductentriesRepository.Delete PRODUCT MINUS50  
+2020-01-04 11:07:33.0849 posrepository.ProductentriesRepository.Delete A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified) 
+2020-01-04 11:14:11.6711 posrepository.ProductentriesRepository.Delete A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified) 
+2020-01-04 11:18:45.3172 posrepository.SalesRepository.Create A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified) 
+2020-01-04 11:24:23.9059 posrepository.SalesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-04 21:50:41.3431 posrepository.ProductsRepository.Read A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified) 
+2020-01-04 21:51:13.5361 posrepository.ProductsRepository.Create A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified) 
+2020-01-04 22:10:51.1752 posrepository.ProductsRepository.CreateEntry An error occurred while updating the entries. See the inner exception for details. 
+2020-01-05 11:41:40.8161 posrepository.ProductsRepository.CreateEntry An error occurred while updating the entries. See the inner exception for details. 
+2020-01-05 11:50:26.7371 posrepository.ProductsRepository.CreateEntry Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions. 
+2020-01-05 11:51:47.7420 posrepository.ProductsRepository.CreateEntry Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions. 
+2020-01-05 17:37:40.9042 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-05 17:43:10.7847 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-05 17:44:09.5627 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-05 17:45:16.1360 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-07 20:22:33.3238 posrepository.ProductsRepository.Update Product Update 1  
+2020-01-07 21:52:32.0551 posrepository.ProductsRepository.Delete Product:1 cstatus:2 
+2020-01-07 21:54:29.2681 posrepository.ProductsRepository.Delete Product:1 cstatus:3 
+2020-01-08 17:35:43.5351 posrepository.ProductsRepository.UpdateEntry posrepository.DTO.ProductDTOSet 
+2020-01-08 17:47:31.8248 posrepository.ProductsRepository.DeleteEntry PRODUCTENTRY DELETED 13  
+2020-01-08 17:47:31.8847 posrepository.ProductsRepository.DeleteEntry PRODUCT MINUS10  
+2020-01-08 17:52:23.4868 posrepository.SalesRepository.Create An error occurred while updating the entries. See the inner exception for details. 
+2020-01-08 19:19:09.5763 posrepository.SalesRepository.Create An error occurred while updating the entries. See the inner exception for details. 
+2020-01-08 19:42:56.1815 posrepository.SalesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-08 19:48:13.9470 posrepository.SalesRepository.Delete Object reference not set to an instance of an object. 
+2020-01-08 19:55:53.0043 posrepository.SalesRepository.Delete Object reference not set to an instance of an object. 
+2020-01-08 20:20:03.4815 posrepository.SalesRepository.Delete Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2020-01-08 20:20:03.5375 posrepository.SalesRepository.Delete The underlying provider failed on Rollback. 
+2020-01-09 00:23:18.2386 posrepository.SalesRepository.Update PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-09 00:28:39.3156 posrepository.SalesRepository.Update PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-09 00:30:19.4676 posrepository.SalesRepository.Update PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-09 12:26:04.4756 posrepository.LostItemsRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-09 12:28:14.7066 posrepository.LostItemsRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-09 17:00:25.1772 posrepository.LostItemsRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-09 17:15:03.5795 posrepository.LostItemsRepository.Delete System.Data.Entity.DynamicProxies.LOSTITEM_5C02AFB75C38A1A91772B9A75CCAF5EA90E2D7891EDFFE2549D64131214920A8 
+2020-01-09 17:30:33.2635 posrepository.LostItemsRepository.Update System.Data.Entity.DynamicProxies.LOSTITEM_5C02AFB75C38A1A91772B9A75CCAF5EA90E2D7891EDFFE2549D64131214920A8 
