@@ -215,6 +215,8 @@ namespace posrepository
         public PRODUCT Create(ProductDTO dto)
         {
             PRODUCT p = new PRODUCT();
+            Logger.Info("drake preach");
+
             try
             {
                 using (var context = new posContext())
@@ -237,6 +239,8 @@ namespace posrepository
                         p.existence = dto.existence;
                         context.Entry(p).State = EntityState.Added;
                         context.SaveChanges();
+                        Logger.Info(p);
+
                     }
                 }
             }

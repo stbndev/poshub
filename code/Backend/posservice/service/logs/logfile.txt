@@ -1,0 +1,7 @@
+2020-01-10 00:50:15.1865 posrepository.ProductsRepository.Read No connection string named 'posContext' could be found in the application config file. 
+2020-01-10 00:50:15.3795 posrepository.ProductsRepository.Create No connection string named 'posContext' could be found in the application config file. 
+2020-01-10 00:55:05.3941 posrepository.ProductsRepository.Read No Entity Framework provider found for the ADO.NET provider with invariant name 'System.Data.SqlClient'. Make sure the provider is registered in the 'entityFramework' section of the application config file. See http://go.microsoft.com/fwlink/?LinkId=260882 for more information. 
+2020-01-10 00:56:04.5237 posrepository.ProductsRepository.Create No Entity Framework provider found for the ADO.NET provider with invariant name 'System.Data.SqlClient'. Make sure the provider is registered in the 'entityFramework' section of the application config file. See http://go.microsoft.com/fwlink/?LinkId=260882 for more information. 
+2020-01-10 01:00:40.2748 posrepository.ProductsRepository.Create mrgvn.db.PRODUCT 
+2020-01-10 01:08:37.9458 posrepository.ProductsRepository.Create mrgvn.db.PRODUCT 
+2020-01-10 01:10:35.4034 posrepository.ProductsRepository.Create drake preach 
