@@ -12,7 +12,7 @@ namespace service.Controllers
     public class ProductController : ApiController
     {
         private IProducts ng;
-        public ProductController(IProducts products) 
+        public ProductController(IProducts products)
         {
             ng = products;
         }
@@ -35,7 +35,7 @@ namespace service.Controllers
             ResponseModel rm = new ResponseModel();
 
             var result = ng.Create(value);
-            if (result)
+            if (result.id > 0)
             {
 
             }
