@@ -31,9 +31,14 @@ namespace service.Controllers
         // POST: api/Product
         //public void Post([FromBody]string value)
         public void Post([FromBody]ProductDTO value)
-
         {
-            ng.Create(value);
+            ResponseModel rm = new ResponseModel();
+
+            var result = ng.Create(value);
+            if (result)
+            {
+
+            }
         }
 
         // PUT: api/Product/5

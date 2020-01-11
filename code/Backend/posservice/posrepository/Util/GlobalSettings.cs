@@ -13,18 +13,37 @@ namespace posrepository
         ELIMINADO = 3,
     }
 
-    public class GlobalSettings
+    public class ResponseModel
     {
-        
+        public dynamic result { get; set; }
+        public bool response { get; set; }
+        public string message { get; set; }
+        public string href { get; set; }
+        public string function { get; set; }
+
+        public ResponseModel()
+        {
+            this.response = false;
+            this.message = "unexpected error";
+        }
+        public void SetResponse(bool r, string m = "")
+        {
+            this.response = r;
+            this.message = m;
+
+            if (!r && m == "") this.message = "unexpected error";
+        }
     }
 
-    public class PosUtil 
+    public static class PosUtil
     {
-        public static long ConvertToTimestamp(DateTime value )
+        public static long ConvertToTimestamp(DateTime value)
         {
             long epoch = (value.Ticks - 621355968000000000) / 10000000;
             // epoch epoca
             return epoch;
         }
     }
+
+    public class GlobalSettings { }
 }

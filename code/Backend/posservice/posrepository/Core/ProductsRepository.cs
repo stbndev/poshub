@@ -43,7 +43,7 @@ namespace posrepository
                             {
                                 productentry.idcstatus = (int)CSTATUS.ELIMINADO;
                                 //var productentrydetails = productentry.PRODUCTENTRYDETAILS.FirstOrDefault(x => x.idproductentries == id);
-                                 var productentrydetails = productentry.PRODUCTENTRYDETAILS.FirstOrDefault();
+                                var productentrydetails = productentry.PRODUCTENTRYDETAILS.FirstOrDefault();
 
                                 var product = context.PRODUCTS.FirstOrDefault(x => x.id == productentrydetails.idproducts);
                                 var extractitems = product.existence - productentrydetails.quantity;
@@ -137,7 +137,7 @@ namespace posrepository
 
                             transaction.Commit();
                             //Logger.Info("PRODUCTENTRIES: id {0} total {1} create_date {2} idcstatus {3}", productEntryDB.id, productEntryDB.total, productEntryDB.create_date, productEntryDB.idcstatus);
-                            Logger.Info(dto  + "Set");
+                            Logger.Info(dto + "Set");
                         }
                         catch (Exception tex)
                         {
@@ -215,18 +215,17 @@ namespace posrepository
         public PRODUCT Create(ProductDTO dto)
         {
             PRODUCT p = new PRODUCT();
-            Logger.Info("drake preach");
-
-            try
+            
+            using (var context = new posContext())
             {
-                using (var context = new posContext())
+                try
                 {
                     // check if no exist barcode 
                     var checkExist = Read(barcode: dto.barcode);
 
-                    if (checkExist.Count() > 0)
+                    if (checkExist.Count > 0)
                     {
-                        Logger.Error("barcode unavailable: {0}", dto.barcode);
+                        Logger.Info("Unavailable barcode {0}", dto.barcode);
                         p.id = 0;
                     }
                     else
@@ -239,15 +238,15 @@ namespace posrepository
                         p.existence = dto.existence;
                         context.Entry(p).State = EntityState.Added;
                         context.SaveChanges();
-                        Logger.Info(p);
+                        Logger.Info("{0} {1} {2} {3} {4} {5} {6} ", p.id, p.name, p.barcode, p.idcstatus, p.unitary_price, p.unitary_cost, p.existence);
 
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                p.id = -1;
-                Logger.Error(ex.Message);
+                catch (Exception ex)
+                {
+                    p.id = -1;
+                    Logger.Error(ex.Message);
+                }
             }
             return p;
         }
@@ -330,6 +329,6 @@ namespace posrepository
             return item;
         }
 
-        
+
     }
 }
