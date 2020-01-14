@@ -5,3 +5,41 @@
 2020-01-10 01:00:40.2748 posrepository.ProductsRepository.Create mrgvn.db.PRODUCT 
 2020-01-10 01:08:37.9458 posrepository.ProductsRepository.Create mrgvn.db.PRODUCT 
 2020-01-10 01:10:35.4034 posrepository.ProductsRepository.Create drake preach 
+2020-01-11 23:36:52.5620 posrepository.ProductsRepository.Create 3 BUBBALOO 01234567 1 1 0.70 0  
+2020-01-11 23:49:25.5279 posrepository.ProductsRepository.Update Product Update 3  
+2020-01-11 23:52:15.0943 posrepository.ProductsRepository.Update Product Update 3  
+2020-01-11 23:54:55.4290 posrepository.ProductsRepository.Update Product Update 3  
+2020-01-12 00:04:58.2386 posrepository.ProductsRepository.Update Product Update 3  
+2020-01-12 00:06:57.2838 posrepository.ProductsRepository.Update Product Update 3  
+2020-01-12 00:08:19.1906 posrepository.ProductsRepository.Update Product Update 3  
+2020-01-12 12:13:22.5176 posrepository.ProductsRepository.Update Product Update 3  
+2020-01-12 12:17:21.2629 posrepository.ProductsRepository.Update Product Update 3  
+2020-01-12 12:19:44.8747 posrepository.ProductsRepository.Update Product Update 3  
+2020-01-12 12:22:18.2256 posrepository.ProductsRepository.Update Product Update 3  
+2020-01-12 23:43:04.3352 posrepository.ProductsRepository.Delete Product:3 cstatus:ELIMINADO 
+2020-01-12 23:43:40.0017 posrepository.ProductsRepository.Update Product Update 3  
+2020-01-13 00:25:42.0349 posrepository.ProductsRepository.CreateEntry An error occurred while updating the entries. See the inner exception for details. 
+2020-01-13 00:28:07.0293 posrepository.ProductsRepository.CreateEntry An error occurred while updating the entries. See the inner exception for details. 
+2020-01-13 00:30:44.3648 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-13 00:40:34.3886 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-13 01:25:10.0853 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-13 18:07:50.6594 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-13 18:09:14.6151 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-14 15:00:12.7116 posrepository.ProductsRepository.CreateEntry PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-14 15:35:15.4911 posrepository.ProductsRepository.UpdateEntry posrepository.DTO.EntryDTOSet 
+2020-01-14 15:36:26.8669 posrepository.ProductsRepository.UpdateEntry posrepository.DTO.EntryDTOSet 
+2020-01-14 15:37:18.6941 posrepository.ProductsRepository.UpdateEntry posrepository.DTO.EntryDTOSet 
+2020-01-14 15:57:45.7219 posrepository.ProductsRepository.Delete Object reference not set to an instance of an object. 
+2020-01-14 15:59:27.7146 posrepository.ProductsRepository.DeleteEntry Attaching an entity of type 'mrgvn.db.PRODUCT' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate. 
+2020-01-14 16:05:21.9025 posrepository.ProductsRepository.DeleteEntry PRODUCTENTRY DELETED 19  
+2020-01-14 16:05:21.9725 posrepository.ProductsRepository.DeleteEntry PRODUCT MINUS1  
+2020-01-14 16:06:00.9431 posrepository.ProductsRepository.DeleteEntry PRODUCTENTRY DELETED 18  
+2020-01-14 16:06:00.9611 posrepository.ProductsRepository.DeleteEntry PRODUCT MINUS15  
+2020-01-14 16:07:34.8773 posrepository.ProductsRepository.DeleteEntry PRODUCTENTRY DELETED 17  
+2020-01-14 16:07:34.8933 posrepository.ProductsRepository.DeleteEntry PRODUCT MINUS15  
+2020-01-14 16:08:44.4174 posrepository.ProductsRepository.DeleteEntry Attaching an entity of type 'mrgvn.db.PRODUCT' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate. 
+2020-01-14 16:09:46.8324 posrepository.ProductsRepository.DeleteEntry PRODUCTENTRY DELETED 16  
+2020-01-14 16:09:46.9454 posrepository.ProductsRepository.DeleteEntry PRODUCT MINUS15  
+2020-01-14 16:11:02.2392 posrepository.ProductsRepository.DeleteEntry PRODUCTENTRY DELETED 12  
+2020-01-14 16:11:02.2392 posrepository.ProductsRepository.DeleteEntry PRODUCT MINUS9  
+2020-01-14 16:11:24.8338 posrepository.ProductsRepository.DeleteEntry Object reference not set to an instance of an object. 

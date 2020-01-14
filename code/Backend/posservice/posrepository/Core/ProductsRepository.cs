@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Data.Entity;
+﻿using mrgvn.db;
 using NLog;
 using posrepository.DTO;
-using mrgvn.db;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using System.Linq;
 namespace posrepository
 {
     public interface IProducts
     {
 
-        PRODUCT Create(ProductDTO dto);
-        PRODUCTENTRy CreateEntry(ProductDTO dto);
+        PRODUCT Create(ProductDTO product);
+        PRODUCTENTRy CreateEntry(EntryDTO dto);
         List<PRODUCT> Read(int id = 0, string barcode = "", int idcstatus = -100, decimal price = -100, decimal cost = -100, int existence = -100, bool all = false);
+        List<PRODUCTENTRy> ReadEntry(int id = 0, bool all = false);
         PRODUCT Update(ProductDTO dto);
-        PRODUCTENTRy UpdateEntry(ProductDTO dto);
+        PRODUCTENTRy UpdateEntry(EntryDTO dto);
 
         bool Delete(int id);
         bool DeleteEntry(int id);
@@ -48,8 +47,7 @@ namespace posrepository
                                 var product = context.PRODUCTS.FirstOrDefault(x => x.id == productentrydetails.idproducts);
                                 var extractitems = product.existence - productentrydetails.quantity;
                                 product.existence = extractitems;
-                                context.Entry(product).State = EntityState.Modified;
-                                context.Entry(productentry).State = EntityState.Modified;
+                                context.Set<PRODUCTENTRy>().AddOrUpdate(productentry);
                                 context.SaveChanges();
                                 transaction.Commit();
                                 flag = true;
@@ -84,9 +82,12 @@ namespace posrepository
                 {
                     // filters 
                     if (all)
-                        listItems = context.PRODUCTENTRIES.Include(x => x.PRODUCTENTRYDETAILS).ToList();
+                        listItems = context.PRODUCTENTRIES.Include(x => x.PRODUCTENTRYDETAILS).
+                                                           Include(x => x.PRODUCTENTRYDETAILS.Select(t => t.PRODUCT)).ToList();
                     else if (id > 0)
-                        listItems = context.PRODUCTENTRIES.Include(x => x.PRODUCTENTRYDETAILS).Where(x => x.id == id).ToList();
+                        listItems = context.PRODUCTENTRIES.Include(x => x.PRODUCTENTRYDETAILS).
+                                                           Include(x => x.PRODUCTENTRYDETAILS.Select(t => t.PRODUCT))
+                                                           .Where(x => x.id == id).ToList();
                 }
             }
             catch (Exception ex)
@@ -96,7 +97,7 @@ namespace posrepository
             return listItems;
         }
 
-        public PRODUCTENTRy UpdateEntry(ProductDTO dto)
+        public PRODUCTENTRy UpdateEntry(EntryDTO dto)
         {
             PRODUCTENTRy productEntryDB = new PRODUCTENTRy();
             try
@@ -155,7 +156,7 @@ namespace posrepository
             }
             return productEntryDB;
         }
-        public PRODUCTENTRy CreateEntry(ProductDTO dto)
+        public PRODUCTENTRy CreateEntry(EntryDTO dto)
         {
             PRODUCTENTRy pe = new PRODUCTENTRy();
             try
@@ -193,8 +194,7 @@ namespace posrepository
                             context.Entry<PRODUCT>(product).State = EntityState.Modified;
                             context.SaveChanges();
                             transaction.Commit();
-
-                            Logger.Info("PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT");
+                            pe = ReadEntry(id: pe.id).First();
                             return pe;
                         }
                         catch (Exception tex)
@@ -215,7 +215,7 @@ namespace posrepository
         public PRODUCT Create(ProductDTO dto)
         {
             PRODUCT p = new PRODUCT();
-            
+
             using (var context = new posContext())
             {
                 try

@@ -15,10 +15,12 @@ namespace service
         {
             AreaRegistration.RegisterAllAreas();
             UnityConfig.RegisterComponents();                           // <----- Add this line
+            AutoMapperConfig.Initialize();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
         }
     }
 }

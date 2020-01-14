@@ -66,3 +66,6 @@ C:\GitHub\poshub\code\Backend\posservice\posrepository\obj\Release\posrepository
 C:\GitHub\poshub\code\Backend\posservice\posrepository\obj\Release\posrepository.csproj.CopyComplete
 C:\GitHub\poshub\code\Backend\posservice\posrepository\obj\Release\posrepository.exe
 C:\GitHub\poshub\code\Backend\posservice\posrepository\obj\Release\posrepository.pdb
+C:\GitHub\poshub\code\Backend\posservice\posrepository\bin\Release\AutoMapper.dll
+C:\GitHub\poshub\code\Backend\posservice\posrepository\bin\Release\AutoMapper.pdb
+C:\GitHub\poshub\code\Backend\posservice\posrepository\bin\Release\AutoMapper.xml

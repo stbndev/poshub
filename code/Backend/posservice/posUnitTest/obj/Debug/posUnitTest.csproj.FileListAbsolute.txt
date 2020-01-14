@@ -79,10 +79,11 @@ C:\GitHub\poshub\code\backend\posservices\posUnitTest\obj\Debug\posUnitTest.cspr
 C:\GitHub\poshub\code\backend\posservices\posUnitTest\obj\Debug\posUnitTest.csproj.CopyComplete
 C:\GitHub\poshub\code\backend\posservices\posUnitTest\obj\Debug\posUnitTest.dll
 C:\GitHub\poshub\code\backend\posservices\posUnitTest\obj\Debug\posUnitTest.pdb
+C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\mrgvn.db.pdb
+C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\NLog.config
 C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\NLog.config
 C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\posUnitTest.dll.config
 C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\posUnitTest.dll
 C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\posUnitTest.pdb
@@ -93,7 +94,6 @@ C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\Microsoft.VisualS
 C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\mrgvn.db.dll
 C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\NLog.dll
 C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\posrepository.exe
-C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\mrgvn.db.pdb
 C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\mrgvn.db.dll.config
 C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\posrepository.pdb
 C:\GitHub\poshub\code\Backend\posservice\posUnitTest\bin\Debug\posrepository.exe.config

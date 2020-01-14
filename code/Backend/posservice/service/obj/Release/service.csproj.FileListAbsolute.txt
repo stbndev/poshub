@@ -102,3 +102,8 @@ C:\GitHub\poshub\code\Backend\posservice\service\obj\Release\service.csprojAssem
 C:\GitHub\poshub\code\Backend\posservice\service\obj\Release\service.csproj.CopyComplete
 C:\GitHub\poshub\code\Backend\posservice\service\obj\Release\service.dll
 C:\GitHub\poshub\code\Backend\posservice\service\obj\Release\service.pdb
+C:\GitHub\poshub\code\Backend\posservice\service\bin\AutoMapper.dll
+C:\GitHub\poshub\code\Backend\posservice\service\bin\AutoMapper.xml
+C:\GitHub\poshub\code\Backend\posservice\service\bin\System.Web.Cors.dll
+C:\GitHub\poshub\code\Backend\posservice\service\bin\System.Web.Http.Cors.dll
+C:\GitHub\poshub\code\Backend\posservice\service\bin\System.Web.Http.Cors.xml
