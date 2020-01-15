@@ -14,12 +14,14 @@ namespace posrepository.DTO
         public string maker { get; set; }
         public int idsales { get; set; }
 
-        public List<SalesDetailsDTO> details { get; set; }
+        public List<SalesDetailsDTO> Saledetails { get; set; }
     }
 
     public class SalesDetailsDTO 
     {
-        public int idsaledetails { get; set; }
+        public int id { get; set; }
+
+        //public int idsaledetails { get; set; }
         public decimal unitary_cost { get; set; }
         public decimal unitary_price { get; set; }
         public int quantity { get; set; }

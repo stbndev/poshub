@@ -12,7 +12,7 @@ namespace service.Controllers
 {
     public class ProductsController : ApiController
     {
-        private static IProducts ng;
+        private  IProducts ng;
         public ProductsController(IProducts products) { ng = products; }
 
 

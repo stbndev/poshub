@@ -43,3 +43,4 @@
 2020-01-14 16:11:02.2392 posrepository.ProductsRepository.DeleteEntry PRODUCTENTRY DELETED 12  
 2020-01-14 16:11:02.2392 posrepository.ProductsRepository.DeleteEntry PRODUCT MINUS9  
 2020-01-14 16:11:24.8338 posrepository.ProductsRepository.DeleteEntry Object reference not set to an instance of an object. 
+2020-01-15 11:33:07.5958 posrepository.SalesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 

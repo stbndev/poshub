@@ -32,9 +32,10 @@ namespace service
                 //ForMember(dst => dst.PRODUCTENTRYDETAILS.Select( t=> t.quantity), src => src.MapFrom(x => x.details.quantity)).
                 //ReverseMap();
 
-                //config.CreateMap<DetailDTO, PRODUCTENTRYDETAIL>().
-                ////ForMember(dst => dst.PRODUCTENTRYDETAILS, src => src.MapFrom(x => x.details)).
-                //ReverseMap();
+                config.CreateMap<SALE, SalesDTO>().
+                ForMember(x => x.Saledetails, src => src.MapFrom(x => x.SALEDETAILS)).
+                ForMember(x1 => x1.idsales, src1 => src1.MapFrom(x1 => x1.id)).
+                ReverseMap();
 
                 config.ValidateInlineMaps = false;
             });

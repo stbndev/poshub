@@ -41,7 +41,7 @@ namespace posrepository
                             context.SaveChanges();
 
                             decimal tmptotal = 0;
-                            foreach (var item in dto.details)
+                            foreach (var item in dto.Saledetails)
                             {
                                 PRODUCT product = context.PRODUCTS.FirstOrDefault(x => x.id == item.idproducts);
                                 SALEDETAIL saledetails = new SALEDETAIL();
@@ -169,7 +169,7 @@ namespace posrepository
                             List<SALEDETAIL> saledetails = sale.SALEDETAILS.ToList();
                             foreach (var item in saledetails)
                             {
-                                foreach (var itemB in dto.details)
+                                foreach (var itemB in dto.Saledetails)
                                 {
                                     if (item.idproducts == itemB.idproducts)
                                     {
