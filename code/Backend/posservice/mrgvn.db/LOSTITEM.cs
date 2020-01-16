@@ -25,7 +25,6 @@ namespace mrgvn.db
 
         public long modification_date { get; set; }
 
-        [Required]
         [StringLength(280)]
         public string maker { get; set; }
 
