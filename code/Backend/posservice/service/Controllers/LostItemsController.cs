@@ -10,54 +10,41 @@ using System.Web.Http;
 
 namespace service.Controllers
 {
-    public class SalesController : ApiController
+    public class LostItemsController : ApiController
     {
-        private ISales ng;
+        private ILostItemsRepository ng;
 
-        public SalesController(ISales sales)
+        public LostItemsController(ILostItemsRepository lostItems)
         {
-            this.ng = sales;
+            this.ng = lostItems;
         }
 
-        // PUT: api/sales/id
-        public string Put(int id, [FromBody]SalesDTO value)
-        {
-            return executeaction(Action.UPDATE, id, value);
-        }
-
-        // GET: api/sales
-        public string Get()
-        {
-            return executeaction(Action.READALL);
-        }
-
-
-        // GET: api/sales/id
+        // GET: api/lostitems/id
         public string Delete(int id)
         {
             return executeaction(Action.DELETE, id: id);
         }
-        // GET: api/sales
+        // GET: api/lostitems
         public string Get()
         {
             return executeaction(Action.READALL);
         }
-        // GET: api/sales/id
+        // GET: api/lostitems/id
         public string Get(int id)
         {
             return executeaction(Action.READID, id: id);
         }
 
         // POST: api/sales
-        public string Post([FromBody]SalesDTO value)
+        public string Post([FromBody]LostItemDTO value)
         {
             return executeaction(Action.CREATE, value: value);
         }
 
-        private string executeaction(Action action, int id = 0, SalesDTO value = null)
+        private string executeaction(Action action, int id = 0, LostItemDTO value = null)
         {
             ResponseModel rm = new ResponseModel();
-            SALE result = new SALE();
+            LOSTITEM result = new LOSTITEM();
 
             try
             {
@@ -67,21 +54,15 @@ namespace service.Controllers
                     case Action.CREATE:
                         result = ng.Create(value);
                         break;
-						
+
                     case Action.READID:
                         result = ng.Read(id: id).First();
                         break;
 
                     case Action.READALL:
                         var results = ng.Read(all: true);
-                        List<SalesDTO> p = Mapper.Map<List<SalesDTO>>(results);
+                        List<LostItemDTO> p = Mapper.Map<List<LostItemDTO>>(results);
                         rm.result = p;
-                        rm.SetResponse(true);
-                        break;
-                    
-                    case Action.UPDATE:
-                        value.idsales = id > 0 ? id : value.idsales;
-                        result = ng.Update(value);
                         rm.SetResponse(true);
                         break;
 
@@ -95,11 +76,11 @@ namespace service.Controllers
 
                 if (result.id > 0)
                 {
-                    SalesDTO p = Mapper.Map<SalesDTO>(result);
-                    rm.result = p;
+                    LostItemDTO tmp = Mapper.Map<LostItemDTO>(result);
+                    rm.result = tmp;
                     rm.SetResponse(true);
                 }
-                
+
                 return JsonConvert.SerializeObject(rm);
             }
             catch (Exception ex)
@@ -110,7 +91,5 @@ namespace service.Controllers
             return JsonConvert.SerializeObject(rm);
 
         }
-
-
     }
 }
