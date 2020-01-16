@@ -132,16 +132,27 @@ namespace posrepository
         {
             List<SALE> sales = new List<SALE>();
 
-            using (var context = new posContext())
+            try
             {
-                // filters 
-                if (all)
-                    sales = context.SALES.
-                                   Include(x => x.SALEDETAILS).
-                                   Include(x => x.SALEDETAILS.Select(sd => sd.PRODUCT)).ToList();
-                else if (id >= 0)
-                    sales = context.SALES.Include(x => x.SALEDETAILS).
-                                          Include(x => x.SALEDETAILS.Select(sd => sd.PRODUCT)).Where(x => x.id == id).ToList();
+                using (var context = new posContext())
+                {
+                    // filters 
+                    if (all)
+                        sales = context.SALES.
+                                       Include(x => x.SALEDETAILS).
+                                       Include(x => x.SALEDETAILS.Select(sd => sd.PRODUCT)).ToList();
+                    else if (id >= 0)
+                        sales = context.SALES.Include(x => x.SALEDETAILS).
+                                              Include(x => x.SALEDETAILS.Select(sd => sd.PRODUCT)).Where(x => x.id == id).ToList();
+                }
+            }
+
+            catch (Exception ex)
+            {
+
+                Logger.Error(ex.Message);
+                Logger.Error(ex.InnerException.Message);
+
             }
             return sales;
         }

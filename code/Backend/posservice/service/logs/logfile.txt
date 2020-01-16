@@ -44,3 +44,6 @@
 2020-01-14 16:11:02.2392 posrepository.ProductsRepository.DeleteEntry PRODUCT MINUS9  
 2020-01-14 16:11:24.8338 posrepository.ProductsRepository.DeleteEntry Object reference not set to an instance of an object. 
 2020-01-15 11:33:07.5958 posrepository.SalesRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-16 11:01:19.7705 posrepository.LostItemsRepository.Create PRODUCTENTRIES PRODUCTENTRIESDETAILS PRODUCT 
+2020-01-16 11:07:27.1755 posrepository.LostItemsRepository.Update System.Data.Entity.DynamicProxies.LOSTITEM_5C02AFB75C38A1A91772B9A75CCAF5EA90E2D7891EDFFE2549D64131214920A8 
+2020-01-16 11:08:38.1055 posrepository.LostItemsRepository.Delete System.Data.Entity.DynamicProxies.LOSTITEM_5C02AFB75C38A1A91772B9A75CCAF5EA90E2D7891EDFFE2549D64131214920A8 

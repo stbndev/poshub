@@ -12,13 +12,14 @@ namespace service.Controllers
 {
     public class LostItemsController : ApiController
     {
-        private ILostItemsRepository ng;
+        private ILostItems ng;
 
-        public LostItemsController(ILostItemsRepository lostItems)
+        public LostItemsController(ILostItems lostItems) { this.ng = lostItems; }
+
+        public string Put(int id, [FromBody]LostItemDTO value)
         {
-            this.ng = lostItems;
+            return executeaction(Action.UPDATE, id: id, value: value);
         }
-
         // GET: api/lostitems/id
         public string Delete(int id)
         {
@@ -64,6 +65,10 @@ namespace service.Controllers
                         List<LostItemDTO> p = Mapper.Map<List<LostItemDTO>>(results);
                         rm.result = p;
                         rm.SetResponse(true);
+                        break;
+
+                    case Action.UPDATE:
+                        result = ng.Update(value);
                         break;
 
                     case Action.DELETE:

@@ -23,19 +23,23 @@ namespace service
         {
             Mapper.Initialize((config) =>
             {
-                config.CreateMap<ProductDTO, PRODUCT>().
-                ForMember(y => y.id, x => x.MapFrom(src => src.idproducts)).
-                ReverseMap();
-
-                //config.CreateMap<EntryDTO, PRODUCTENTRy>().
-                ////ForMember(dst => dst.PRODUCTENTRYDETAILS, src => src.MapFrom(x => x.details.idproducts)).
-                //ForMember(dst => dst.PRODUCTENTRYDETAILS.Select( t=> t.quantity), src => src.MapFrom(x => x.details.quantity)).
+                //config.CreateMap<ProductDTO, PRODUCT>().
+                //ForMember(y => y.id, x => x.MapFrom(src => src.idproducts)).
                 //ReverseMap();
+
+                config.CreateMap<PRODUCT, ProductDTO>().
+                ForMember(y => y.idproducts, x => x.MapFrom(src => src.id)).
+                ReverseMap();
 
                 config.CreateMap<SALE, SalesDTO>().
                 ForMember(x => x.Saledetails, src => src.MapFrom(x => x.SALEDETAILS)).
                 ForMember(x1 => x1.idsales, src1 => src1.MapFrom(x1 => x1.id)).
                 ReverseMap();
+
+                config.CreateMap<LOSTITEM, LostItemDTO>().
+                ForMember(x => x.Itemsdetails, src => src.MapFrom(x => x.LOSTITEMDETAILS)).
+                ReverseMap();
+
 
                 config.ValidateInlineMaps = false;
             });

@@ -11,7 +11,7 @@ using mrgvn.db;
 
 namespace posrepository
 {
-    public interface ILostItemsRepository
+    public interface ILostItems
     {
         LOSTITEM Create(LostItemDTO dto);
         LOSTITEMDETAIL CreateDetails(LostItemDTO dto);
@@ -22,7 +22,7 @@ namespace posrepository
         bool Delete(int id);
         bool DeleteDetail(int id);
     }
-    public class LostItemsRepository : ILostItemsRepository
+    public class LostItemsRepository : ILostItems
     {
         private static readonly Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
@@ -44,7 +44,7 @@ namespace posrepository
 
                         decimal tmptotal = 0;
 
-                        foreach (var detail in dto.details)
+                        foreach (var detail in dto.Itemsdetails)
                         {
                             PRODUCT product = context.PRODUCTS.FirstOrDefault(x => x.id == detail.idproducts);
                             LOSTITEMDETAIL lids = new LOSTITEMDETAIL();
@@ -143,7 +143,7 @@ namespace posrepository
         {
             LOSTITEM lost = new LOSTITEM();
             
-            if (dto.idlostitems <= 0)
+            if (dto.id <= 0)
                 return null;
 
 
@@ -153,7 +153,7 @@ namespace posrepository
                 {
                     try
                     {
-                        lost = Read(id: dto.idlostitems).FirstOrDefault();
+                        lost = Read(id: dto.id).FirstOrDefault();
                         lost.idcstatus = dto.idcstatus;
                         lost.modification_date = PosUtil.ConvertToTimestamp(DateTime.Now);
 
@@ -162,7 +162,7 @@ namespace posrepository
 
                         foreach (var itemBD in details)
                         {
-                            foreach (var itemCurrent in dto.details)
+                            foreach (var itemCurrent in dto.Itemsdetails)
                             {
                                 if (itemBD.idproducts == itemCurrent.idproducts)
                                 {

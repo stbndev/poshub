@@ -51,10 +51,10 @@ namespace posUnitTest
         {
             
             LostItemDTO lost = new LostItemDTO();
-            lost.idlostitems = 1;
+            lost.id = 1;
             lost.idcstatus = (int)CSTATUS.ACTIVO;
             lost.maker = "TestClass.TestMethod";
-            lost.details = new List<LostItemDetailsDTO>();
+            lost.Itemsdetails = new List<LostItemDetailsDTO>();
 
             LostItemDetailsDTO details = new LostItemDetailsDTO();
             details.quantity = 5;
@@ -64,10 +64,10 @@ namespace posUnitTest
             details2.quantity = 5;
             details2.idproducts = 1;
 
-            lost.details.Add(details);
-            lost.details.Add(details2);
+            lost.Itemsdetails.Add(details);
+            lost.Itemsdetails.Add(details2);
 
-            ILostItemsRepository ctrlSales = new LostItemsRepository();
+            ILostItems ctrlSales = new LostItemsRepository();
             var result = ctrlSales.Update(lost);
             Assert.IsTrue(result.id > 0, "OK success");
         }

@@ -18,7 +18,7 @@ namespace service
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<IProducts, ProductsRepository>();
             container.RegisterType<ISales, SalesRepository>();
-
+            container.RegisterType<ILostItems, LostItemsRepository>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

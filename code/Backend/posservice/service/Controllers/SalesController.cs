@@ -32,16 +32,12 @@ namespace service.Controllers
         }
 
 
-        // GET: api/sales/id
+        // DELETE: api/sales/id
         public string Delete(int id)
         {
             return executeaction(Action.DELETE, id: id);
         }
-        // GET: api/sales
-        public string Get()
-        {
-            return executeaction(Action.READALL);
-        }
+       
         // GET: api/sales/id
         public string Get(int id)
         {
