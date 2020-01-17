@@ -1,33 +1,34 @@
 ﻿using AutoMapper;
 using mrgvn.db;
-using Newtonsoft.Json;
 using posrepository;
 using posrepository.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace service.Controllers
 {
     public class ProductsController : ApiController
     {
-        private  IProducts ng;
+        private IProducts ng;
         public ProductsController(IProducts products) { ng = products; }
 
 
         [HttpDelete]
         ///[ResponseType(typeof(UsuarioDTO))]
         [Route("api/products/entries/{id}")]
-        public string DeleteEntry(int id)
+        public HttpResponseMessage DeleteEntry(int id)
         {
-            return executeactionentries(Action.DELETE, id: id );
+            return executeactionentries(Action.DELETE, id: id);
         }
 
         [HttpPut]
         ///[ResponseType(typeof(UsuarioDTO))]
         [Route("api/products/entries/{id}")]
-        public string PutEntry(int id, [FromBody] EntryDTO dto)
+        public HttpResponseMessage PutEntry(int id, [FromBody] EntryDTO dto)
         {
             return executeactionentries(Action.UPDATE, id: id, value: dto);
         }
@@ -35,7 +36,7 @@ namespace service.Controllers
         [HttpGet]
         ///[ResponseType(typeof(UsuarioDTO))]
         [Route("api/products/entries")]
-        public string GetEntry()
+        public HttpResponseMessage GetEntry()
         {
             return executeactionentries(Action.READALL);
         }
@@ -43,7 +44,7 @@ namespace service.Controllers
         [HttpGet]
         ///[ResponseType(typeof(UsuarioDTO))]
         [Route("api/products/entries/{id}")]
-        public string GetEntry(int id)
+        public HttpResponseMessage GetEntry(int id)
         {
             return executeactionentries(Action.READID, id: id);
         }
@@ -51,30 +52,37 @@ namespace service.Controllers
         [HttpPost]
         ///[ResponseType(typeof(UsuarioDTO))]
         [Route("api/products/entries")]
-        public string Login([FromBody] EntryDTO dto)
+        public HttpResponseMessage Login([FromBody] EntryDTO dto)
         {
             return executeactionentries(Action.CREATE, value: dto);
         }
         // GET: api/Product
-        public string Get()
+        //public HttpResponseMessage  Get()
+        public HttpResponseMessage Get()
         {
+            // return Request.CreateResponse<MyOder>(HttpStatusCode.Created, order);
             return executeaction(Action.READALL);
         }
 
         // GET: api/Product/5
-        public string Get(int id)
+        //public async Task<HttpResponseMessage> Get(int id)
+        public HttpResponseMessage Get(int id)
         {
+
+            //var t =  Task.Run(()=> ng.Read(id: id).First());
+            //t.Wait();
+            //result = t.Result;
             return executeaction(Action.READID, id: id);
         }
 
         // POST: api/Product
-        public string Post([FromBody]ProductDTO value)
+        public HttpResponseMessage Post([FromBody]ProductDTO value)
         {
             return executeaction(Action.CREATE, value: value);
         }
 
         // PUT: api/Product/5
-        public string Put(int id, [FromBody]ProductDTO value)
+        public HttpResponseMessage Put(int id, [FromBody]ProductDTO value)
         {
             value.idproducts = id;
             return executeaction(Action.UPDATE, id: id, value: value);
@@ -82,12 +90,12 @@ namespace service.Controllers
         }
 
         // DELETE: api/Product/5
-        public string Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
             return executeaction(Action.DELETE, id: id);
         }
 
-        private string executeaction(Action action, int id = 0, ProductDTO value = null)
+        private HttpResponseMessage executeaction(Action action, int id = 0, ProductDTO value = null)
         {
             ResponseModel rm = new ResponseModel();
             PRODUCT result = new PRODUCT();
@@ -131,19 +139,16 @@ namespace service.Controllers
                     rm.SetResponse(true);
 
                 }
-
-                return JsonConvert.SerializeObject(rm);
             }
             catch (Exception ex)
             {
                 rm.message = ex.Message;
             }
 
-            return JsonConvert.SerializeObject(rm);
-
+            return Request.CreateResponse<ResponseModel>(HttpStatusCode.OK, rm);
         }
 
-        private string executeactionentries(Action action, int id = 0, EntryDTO value = null)
+        private HttpResponseMessage executeactionentries(Action action, int id = 0, EntryDTO value = null)
         {
             ResponseModel rm = new ResponseModel();
             PRODUCTENTRy result = new PRODUCTENTRy();
@@ -216,15 +221,14 @@ namespace service.Controllers
                     rm.result = list;
                     rm.SetResponse(true);
                 }
-                return JsonConvert.SerializeObject(rm, Formatting.None);
+               
             }
             catch (Exception ex)
             {
                 rm.message = ex.Message;
             }
 
-            return JsonConvert.SerializeObject(rm);
-
+            return Request.CreateResponse<ResponseModel>(HttpStatusCode.OK, rm);
         }
     }
 }
