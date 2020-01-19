@@ -6,6 +6,8 @@ using posrepository.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace service.Controllers
@@ -16,33 +18,33 @@ namespace service.Controllers
 
         public LostItemsController(ILostItems lostItems) { this.ng = lostItems; }
 
-        public string Put(int id, [FromBody]LostItemDTO value)
+        public HttpResponseMessage Put(int id, [FromBody]LostItemDTO value)
         {
             return executeaction(Action.UPDATE, id: id, value: value);
         }
         // GET: api/lostitems/id
-        public string Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
             return executeaction(Action.DELETE, id: id);
         }
         // GET: api/lostitems
-        public string Get()
+        public HttpResponseMessage Get()
         {
             return executeaction(Action.READALL);
         }
         // GET: api/lostitems/id
-        public string Get(int id)
+        public HttpResponseMessage Get(int id)
         {
             return executeaction(Action.READID, id: id);
         }
 
         // POST: api/sales
-        public string Post([FromBody]LostItemDTO value)
+        public HttpResponseMessage Post([FromBody]LostItemDTO value)
         {
             return executeaction(Action.CREATE, value: value);
         }
 
-        private string executeaction(Action action, int id = 0, LostItemDTO value = null)
+        private HttpResponseMessage executeaction(Action action, int id = 0, LostItemDTO value = null)
         {
             ResponseModel rm = new ResponseModel();
             LOSTITEM result = new LOSTITEM();
@@ -85,15 +87,12 @@ namespace service.Controllers
                     rm.result = tmp;
                     rm.SetResponse(true);
                 }
-
-                return JsonConvert.SerializeObject(rm);
             }
             catch (Exception ex)
             {
                 rm.message = ex.Message;
             }
-
-            return JsonConvert.SerializeObject(rm);
+            return Request.CreateResponse<ResponseModel>(HttpStatusCode.OK, rm);
 
         }
     }

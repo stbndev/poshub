@@ -6,6 +6,8 @@ using posrepository.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace service.Controllers
@@ -20,37 +22,37 @@ namespace service.Controllers
         }
 
         // PUT: api/sales/id
-        public string Put(int id, [FromBody]SalesDTO value)
+        public HttpResponseMessage Put(int id, [FromBody]SalesDTO value)
         {
             return executeaction(Action.UPDATE, id, value);
         }
 
         // GET: api/sales
-        public string Get()
+        public HttpResponseMessage Get()
         {
             return executeaction(Action.READALL);
         }
 
 
         // DELETE: api/sales/id
-        public string Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
             return executeaction(Action.DELETE, id: id);
         }
        
         // GET: api/sales/id
-        public string Get(int id)
+        public HttpResponseMessage Get(int id)
         {
             return executeaction(Action.READID, id: id);
         }
 
         // POST: api/sales
-        public string Post([FromBody]SalesDTO value)
+        public HttpResponseMessage Post([FromBody]SalesDTO value)
         {
             return executeaction(Action.CREATE, value: value);
         }
 
-        private string executeaction(Action action, int id = 0, SalesDTO value = null)
+        private HttpResponseMessage executeaction(Action action, int id = 0, SalesDTO value = null)
         {
             ResponseModel rm = new ResponseModel();
             SALE result = new SALE();
@@ -95,16 +97,12 @@ namespace service.Controllers
                     rm.result = p;
                     rm.SetResponse(true);
                 }
-                
-                return JsonConvert.SerializeObject(rm);
             }
             catch (Exception ex)
             {
                 rm.message = ex.Message;
             }
-
-            return JsonConvert.SerializeObject(rm);
-
+            return Request.CreateResponse<ResponseModel>(HttpStatusCode.OK, rm);
         }
 
 
