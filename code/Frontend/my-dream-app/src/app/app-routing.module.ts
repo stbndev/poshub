@@ -1,8 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainmenuComponent } from './mainmenu/mainmenu.component';
+
+import { ProductsComponent } from "./products/products.component";
 
 const routes: Routes = [
+  // { path:  '', redirectTo:  'mainmenu', pathMatch:  'full' },
+  
+
+  // {
+  //   path: 'products',
+  //   component: ProductsComponent
+  // },
   
 ];
 
@@ -10,4 +18,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+ }
