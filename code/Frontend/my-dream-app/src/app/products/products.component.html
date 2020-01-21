@@ -1,2 +1,11 @@
 <p>products works!</p>
 <button mat-raised-button color='accent'>Click Me</button>
+<mat-grid-list cols="3" rowHeight="100px">
+    <mat-grid-tile
+        *ngFor="let item of products"
+        [colspan]="1"
+        [rowspan]="1">
+                <!-- [style.background]="tile.color" -->
+      {{item.name}}
+    </mat-grid-tile>
+  </mat-grid-list>
