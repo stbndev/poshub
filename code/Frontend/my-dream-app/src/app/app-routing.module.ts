@@ -5,12 +5,14 @@ import { ProductsComponent } from "./products/products.component";
 
 const routes: Routes = [
   // { path:  '', redirectTo:  'mainmenu', pathMatch:  'full' },
+  // { path:  'products', redirectTo:  'product', pathMatch:  'full' },
+
   
 
-  // {
-  //   path: 'products',
-  //   component: ProductsComponent
-  // },
+  {
+    path: 'products',
+    component: ProductsComponent
+  },
   
 ];
 

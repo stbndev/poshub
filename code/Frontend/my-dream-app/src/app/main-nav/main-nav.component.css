@@ -8,6 +8,8 @@
 @media(min-width: 768px){
   .sidenav{
     display: none;
+    /*color: #eeee02;
+    font-size: 200px; */
   }
 }
 .hidden{
