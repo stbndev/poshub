@@ -14,8 +14,8 @@ export class ConfigService {
   }
 
   // configUrl = 'https://jsonplaceholder.typicode.com/posts/1/comments';
-  // uriResources = 'http://10.211.55.3/poshubdev/api/';
-  uriResources = 'http://localhost/poshubdev/api/';
+  uriResources = 'http://10.211.55.3/poshubdev/api/';
+  // uriResources = 'http://localhost/poshubdev/api/';
 
   httpOptions = {
     headers: new HttpHeaders({
