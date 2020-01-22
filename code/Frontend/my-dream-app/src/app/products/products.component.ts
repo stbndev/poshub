@@ -23,8 +23,6 @@ export class ProductsComponent implements OnInit {
       if (data.response) {
         this.products = data.result.slice();
       }
-
-      
     }, (error) => {
       console.dir(error);
       alert(error);

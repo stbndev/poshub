@@ -13,8 +13,9 @@ export class ConfigService {
 
   }
 
-  configUrl = 'https://jsonplaceholder.typicode.com/posts/1/comments';
-  uriResources = 'http://10.211.55.3/poshubdev/api/';
+  // configUrl = 'https://jsonplaceholder.typicode.com/posts/1/comments';
+  // uriResources = 'http://10.211.55.3/poshubdev/api/';
+  uriResources = 'http://localhost/poshubdev/api/';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -28,9 +29,9 @@ export class ConfigService {
     return body || {};
     
   }
-  getConfig(): Observable<any> {
-    return this.http.get(this.configUrl).pipe(map(this.extractData));
-  }
+  // getConfig(): Observable<any> {
+  //   return this.http.get(this.configUrl).pipe(map(this.extractData));
+  // }
 
   Get(serviceName:String):Observable<any> {
     return this.http.get(`${this.uriResources}${serviceName}`).pipe(map(this.extractData));
