@@ -1,5 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" [ngClass]="{hidden: (isHandset$ | async) === false}" fixedInViewport='false'
+  <!-- [ngClass]="{hidden: (isHandset$ | async) === false}"  -->
+  <mat-sidenav #drawer class="sidenav" 
+    fixedInViewport='false'
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
@@ -27,4 +29,5 @@
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
 <!-- https://www.youtube.com/watch?v=Q6qhzG7mObU -->
