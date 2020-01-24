@@ -15,18 +15,26 @@ import { MatListModule } from '@angular/material/list';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatMenuModule} from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ProductsAddSetComponent } from './products-add-set/products-add-set.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     MainNavComponent,
+    ProductsAddSetComponent,
   ],
   imports: [
     HttpClientModule,
     RouterModule,
     MatSliderModule,
     MatGridListModule,
+    MatMenuModule,
+    MatTooltipModule,
+    MatDialogModule,
     //
     BrowserModule,
     AppRoutingModule,
