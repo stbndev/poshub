@@ -19,6 +19,12 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ProductsAddSetComponent } from './products-add-set/products-add-set.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { MatInputModule } from '@angular/material';
+
+
+
 
 @NgModule({
   declarations: [
@@ -35,6 +41,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatMenuModule,
     MatTooltipModule,
     MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
     //
     BrowserModule,
     AppRoutingModule,

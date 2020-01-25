@@ -18,6 +18,10 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
+  onSaveForm(){
+  
+    console.dir('test');
+  }
   openDialog(): void {
     const dialogRef = this.dialog.open(ProductsAddSetComponent,
       {
