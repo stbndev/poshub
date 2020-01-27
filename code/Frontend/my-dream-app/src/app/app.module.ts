@@ -22,6 +22,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { MatInputModule } from '@angular/material';
+import { FormsModule }   from '@angular/forms';
+
 
 
 
@@ -44,6 +46,7 @@ import { MatInputModule } from '@angular/material';
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    FormsModule,
     //
     BrowserModule,
     AppRoutingModule,

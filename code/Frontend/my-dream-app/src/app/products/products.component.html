@@ -1,6 +1,6 @@
 <!-- <p>products works!</p> -->
-<div id="divSubMenu">
-  <button (click)='openDialog()' mat-icon-button matTooltip="Agregar nuevo producto">
+<div id='divSubMenu'>
+  <button (click)='openDialog()' mat-icon-button matTooltip='Agregar nuevo producto'>
     <mat-icon>add_circle_outline</mat-icon>
   </button>
 
@@ -12,44 +12,41 @@
     <mat-icon>delete_sweep</mat-icon>
   </button>
 </div>
-<form class='divProducts' #productsForm (ngSubmit)='onSaveForm()'>
-    <mat-form-field>
-      <input matInput placeholder="idproducts">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Nombre">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Código de Barras o clave">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Estatus">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Precio">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Costo">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Input">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Existencias">
-    </mat-form-field>
-    <button   mat-raised-button>OK</button>
+<form class='divProducts' #productsForm ="ngForm" (ngSubmit)='onSaveForm()'>
+  <mat-form-field>
+    <input matInput placeholder='idproducts' [(ngModel)]='model.idproducts' name='idproducts'>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder='Nombre' [(ngModel)]='model.name' name='name'>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder='Código de Barras o clave' [(ngModel)]='model.barcode' name='barcode'>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder='Estatus' [(ngModel)]='model.idcstatus' name='idcstatus'>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder='Precio' [(ngModel)]='model.unitary_price' name='unitary_price'>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder='Costo' [(ngModel)]='model.unitary_cost' name='unitary_cost'>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder='Existencias' [(ngModel)]='model.existence' name='existence'>
+  </mat-form-field>
+  <button mat-raised-button>OK</button>
 </form>
 
-<!-- <i class="material-icons md-light md-36">
+<!-- <i class='material-icons md-light md-36'>
   add_to_queue
   </i>
  <br> 
 <button mat-raised-button color='accent'>Click Me</button> -->
-<mat-grid-list cols="5" rowHeight="100px">
-  <mat-grid-tile *ngFor="let item of products" [colspan]="1" [rowspan]="1">
+<mat-grid-list cols='5' rowHeight='100px'>
+  <mat-grid-tile *ngFor='let item of products' [colspan]='1' [rowspan]='1'>
     <!-- -->
-    <!-- class="tile-image" -->
-    <img src="./../../assets/imgs/sol-tubi-papa.jpg">
+    <!-- class='tile-image' -->
+    <img src='./../../assets/imgs/sol-tubi-papa.jpg'>
     <mat-grid-tile-header>
       <h3>{{item.name}} </h3>
     </mat-grid-tile-header>

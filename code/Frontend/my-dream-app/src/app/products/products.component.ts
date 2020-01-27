@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConfigService } from "./../config/config.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductsAddSetComponent } from "./../products-add-set/products-add-set.component";
+import { Productsvm } from '../viewmodels/productsvm';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -10,7 +11,9 @@ import { ProductsAddSetComponent } from "./../products-add-set/products-add-set.
 
 export class ProductsComponent implements OnInit {
 
-  public products: any = [];
+  // public products: any = [];
+  products: any = [];
+  model = new Productsvm(0,'','',0,0,0,0,0,0);
 
   constructor(public dialog: MatDialog, protected service: ConfigService) { }
 
@@ -18,8 +21,8 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
-  onSaveForm(){
-  
+  onSaveForm() {
+    console.dir(this.model);
     console.dir('test');
   }
   openDialog(): void {
