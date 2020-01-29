@@ -3,6 +3,7 @@ import { ConfigService } from "./../config/config.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductsAddSetComponent } from "./../products-add-set/products-add-set.component";
 import { Productsvm } from '../viewmodels/productsvm';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -13,17 +14,24 @@ export class ProductsComponent implements OnInit {
 
   // public products: any = [];
   products: any = [];
-  model = new Productsvm(0,'','',0,0,0,0,0,0);
-
+  // model = new Productsvm(0,'','',0,0,0,0,0,0);
+  model = new Productsvm();
   constructor(public dialog: MatDialog, protected service: ConfigService) { }
 
   ngOnInit() {
     this.getProducts();
   }
 
-  onSaveForm() {
-    console.dir(this.model);
-    console.dir('test');
+
+  onSaveForm(value:any) {
+    console.dir(value);
+    
+  }
+  
+  add():boolean{
+
+    this
+    return true;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(ProductsAddSetComponent,
@@ -51,6 +59,5 @@ export class ProductsComponent implements OnInit {
       alert(error);
     });
   }
-
 
 }

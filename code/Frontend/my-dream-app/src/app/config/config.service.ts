@@ -9,13 +9,11 @@ import { map } from 'rxjs/operators';
 })
 export class ConfigService {
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) {}
 
   // configUrl = 'https://jsonplaceholder.typicode.com/posts/1/comments';
-  uriResources = 'http://10.211.55.3/poshubdev/api/';
-  // uriResources = 'http://localhost/poshubdev/api/';
+  // uriResources = 'http://10.211.55.3/poshubdev/api/';
+  uriResources = 'http://localhost/poshubdev/api/';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -35,5 +33,9 @@ export class ConfigService {
 
   Get(serviceName:String):Observable<any> {
     return this.http.get(`${this.uriResources}${serviceName}`).pipe(map(this.extractData));
+  }
+
+  Post(serviceName:String,data:any):Observable<any> {
+    return this.http.post(`${this.uriResources}${serviceName}`,data).pipe(map(this.extractData));
   }
 }
