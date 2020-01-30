@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Tipo } from "./../config/Enum.Tipo";
+import { Tipos } from "./tipos.enum";
 
 @Injectable({
   providedIn: 'root'
@@ -59,5 +59,24 @@ export class ConfigService {
         break;
     }
     return tmpresponse;
+  }
+
+  Make(serviceName:String,tipo:Tipos , data:any):Observable<any> {
+    switch (tipo) {
+      case Tipos.POST:
+        return this.http.post(`${this.uriResources}${serviceName}`,data).pipe(map(this.extractData));
+        break;
+
+        case Tipos.PATCH:
+        return this.http.patch(`${this.uriResources}${serviceName}`,data).pipe(map(this.extractData));
+        break;
+
+        case Tipos.PATCH:
+          return this.http.patch(`${this.uriResources}${serviceName}`,data).pipe(map(this.extractData));
+          break;
+    
+      default:
+        break;
+    }
   }
 }
