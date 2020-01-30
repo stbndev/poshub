@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
+import { Tipo } from "./../config/Enum.Tipo";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ConfigService {
 
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient) { }
 
   // configUrl = 'https://jsonplaceholder.typicode.com/posts/1/comments';
   // uriResources = 'http://10.211.55.3/poshubdev/api/';
@@ -25,17 +27,37 @@ export class ConfigService {
     let body = res;
     // return body || {};
     return body || {};
-    
+
   }
   // getConfig(): Observable<any> {
   //   return this.http.get(this.configUrl).pipe(map(this.extractData));
   // }
 
-  Get(serviceName:String):Observable<any> {
+  Get(serviceName: String): Observable<any> {
     return this.http.get(`${this.uriResources}${serviceName}`).pipe(map(this.extractData));
   }
 
-  Post(serviceName:String,data:any):Observable<any> {
-    return this.http.post(`${this.uriResources}${serviceName}`,data).pipe(map(this.extractData));
+  Call(serviceName: String, tipo: Tipo, data: any): Observable<any> {
+
+    let tmpresponse: any;
+    switch (tipo) {
+
+      case Tipo.POST:
+        tmpresponse = this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
+        break;
+
+      case Tipo.PUT:
+        tmpresponse = this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
+        break;
+
+      case Tipo.DELETE:
+        tmpresponse = this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
+        break;
+
+      default:
+        throw "not found enum tipo";
+        break;
+    }
+    return tmpresponse;
   }
 }

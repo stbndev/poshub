@@ -48,7 +48,7 @@
  <br> 
 <button mat-raised-button color='accent'>Click Me</button> -->
 <mat-grid-list cols='5' rowHeight='100px'>
-  <mat-grid-tile *ngFor='let item of products' [colspan]='1' [rowspan]='1'>
+  <mat-grid-tile *ngFor='let item of products' [colspan]='1' [rowspan]='1' (click)="onSelect($event, item)">
     <!-- -->
     <!-- class='tile-image' -->
     <img src='./../../assets/imgs/sol-tubi-papa.jpg'>

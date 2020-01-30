@@ -3,7 +3,7 @@ import { ConfigService } from "./../config/config.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductsAddSetComponent } from "./../products-add-set/products-add-set.component";
 import { Productsvm } from '../viewmodels/productsvm';
-
+import { Tipo } from "./../config/Enum.Tipo";
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -22,15 +22,28 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
-
-  onSaveForm(value:any) {
-    console.dir(value);
-    
+  onSelect(event, item) {
+    Object.assign(this.model, item);
   }
-  
-  add():boolean{
 
-    this
+  onSaveForm() {
+    
+    let tmptipo = this.model.idproducts == 0 ? Tipo.POST : Tipo.PUT;
+
+    if(this.model.idproducts )
+    this.model.idproducts;
+    
+    this.service.Call('products', null , null).subscribe((data) => {
+      if (data.response) {
+        console.dir(data);
+      }
+    }, (error) => {
+      console.dir(error);
+    });
+  }
+
+  add(): boolean {
+
     return true;
   }
   openDialog(): void {
