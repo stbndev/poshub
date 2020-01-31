@@ -15,7 +15,7 @@
 <div class="card m-3">
   <h5 class="card-header">Angular 8 Template-Driven Form Validation</h5>
   <div class="card-body">
-    <form class='divProducts' #productsForm="ngForm" (ngSubmit)='onSaveForm(productsForm.value)'>
+    <form class='divProducts' #productsForm="ngForm" (ngSubmit)='onSaveForm()'>
       <mat-form-field>
         <input matInput placeholder='idproducts' [(ngModel)]='model.idproducts' name='idproducts'>
       </mat-form-field>
@@ -38,6 +38,8 @@
         <input matInput placeholder='Existencias' [(ngModel)]='model.existence' name='existence'>
       </mat-form-field>
       <button mat-raised-button>OK</button>
+      <button mat-raised-button (click)="onDelete()" >DELETE</button>
+
     </form>
   </div>
   

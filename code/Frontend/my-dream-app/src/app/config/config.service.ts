@@ -10,7 +10,6 @@ import { Tipos } from "./tipos.enum";
 
 export class ConfigService {
 
-
   constructor(private http: HttpClient) { }
 
   // configUrl = 'https://jsonplaceholder.typicode.com/posts/1/comments';
@@ -37,46 +36,50 @@ export class ConfigService {
     return this.http.get(`${this.uriResources}${serviceName}`).pipe(map(this.extractData));
   }
 
-  Call(serviceName: String, tipo: Tipo, data: any): Observable<any> {
+  // Call(serviceName: String, tipo: Tipo, data: any): Observable<any> {
 
-    let tmpresponse: any;
-    switch (tipo) {
+  //   let tmpresponse: any;
+  //   switch (tipo) {
 
-      case Tipo.POST:
-        tmpresponse = this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
-        break;
+  //     case Tipo.POST:
+  //       tmpresponse = this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
+  //       break;
 
-      case Tipo.PUT:
-        tmpresponse = this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
-        break;
+  //     case Tipo.PUT:
+  //       tmpresponse = this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
+  //       break;
 
-      case Tipo.DELETE:
-        tmpresponse = this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
-        break;
+  //     case Tipo.DELETE:
+  //       tmpresponse = this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
+  //       break;
 
-      default:
-        throw "not found enum tipo";
-        break;
-    }
-    return tmpresponse;
-  }
+  //     default:
+  //       throw "not found enum tipo";
+  //       break;
+  //   }
+  //   return tmpresponse;
+  // }
 
-  Make(serviceName:String,tipo:Tipos , data:any):Observable<any> {
+  Make(serviceName: String, tipo:any, data: any): Observable<any> {
+
+    //TODO
+    // control exception library
+    // NLOG for typescript
     switch (tipo) {
       case Tipos.POST:
-        return this.http.post(`${this.uriResources}${serviceName}`,data).pipe(map(this.extractData));
-        break;
+        return this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
 
-        case Tipos.PATCH:
-        return this.http.patch(`${this.uriResources}${serviceName}`,data).pipe(map(this.extractData));
-        break;
+      case Tipos.PUT:
+        return this.http.put(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
 
-        case Tipos.PATCH:
-          return this.http.patch(`${this.uriResources}${serviceName}`,data).pipe(map(this.extractData));
-          break;
-    
+      case Tipos.PATCH:
+        return this.http.patch(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
+
+        case Tipos.DELETE:
+        return this.http.delete(`${this.uriResources}${serviceName}`).pipe(map(this.extractData));
+
       default:
-        break;
+        return null;
     }
   }
 }

@@ -3,7 +3,7 @@ import { ConfigService } from "./../config/config.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductsAddSetComponent } from "./../products-add-set/products-add-set.component";
 import { Productsvm } from '../viewmodels/productsvm';
-import { Tipo } from "./../config/Enum.Tipo";
+import { Tipos } from "./../config/tipos.enum";
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -22,18 +22,23 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
+  onDelete(){
+    this.service.Make('products/', Tipos.DELETE, this.model).subscribe((data) => {
+      if (data.response) {
+        console.dir(data);
+      }
+    }, (error) => {
+      console.dir(error);
+    });
+
+  }
   onSelect(event, item) {
     Object.assign(this.model, item);
   }
 
   onSaveForm() {
-    
-    let tmptipo = this.model.idproducts == 0 ? Tipo.POST : Tipo.PUT;
-
-    if(this.model.idproducts )
-    this.model.idproducts;
-    
-    this.service.Call('products', null , null).subscribe((data) => {
+    let tmp2 = (this.model.idproducts > 0 ? Tipos.PUT.valueOf() : Tipos.POST.valueOf());
+    this.service.Make('products', tmp2, this.model).subscribe((data) => {
       if (data.response) {
         console.dir(data);
       }
