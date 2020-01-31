@@ -23,6 +23,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { MatInputModule } from '@angular/material';
 import { FormsModule }   from '@angular/forms';
+import { AddsetComponent } from './products/addset/addset.component';
+import {MatCardModule} from '@angular/material/card';
+
 
 
 
@@ -34,6 +37,7 @@ import { FormsModule }   from '@angular/forms';
     ProductsComponent,
     MainNavComponent,
     ProductsAddSetComponent,
+    AddsetComponent,
   ],
   imports: [
     HttpClientModule,
@@ -47,6 +51,7 @@ import { FormsModule }   from '@angular/forms';
     MatSelectModule,
     MatInputModule,
     FormsModule,
+    MatCardModule,
     //
     BrowserModule,
     AppRoutingModule,

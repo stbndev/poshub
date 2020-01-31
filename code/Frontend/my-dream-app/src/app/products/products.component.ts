@@ -22,8 +22,11 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
-  onDelete(){
-    this.service.Make('products/', Tipos.DELETE, this.model).subscribe((data) => {
+  onDelete() {
+    //TODO 
+    //property idcstatus no is update on api
+    let tmpendpoint: String = `products/${this.model.idproducts}`
+    this.service.Make(tmpendpoint, Tipos.DELETE, this.model).subscribe((data) => {
       if (data.response) {
         console.dir(data);
       }
@@ -37,8 +40,16 @@ export class ProductsComponent implements OnInit {
   }
 
   onSaveForm() {
-    let tmp2 = (this.model.idproducts > 0 ? Tipos.PUT.valueOf() : Tipos.POST.valueOf());
-    this.service.Make('products', tmp2, this.model).subscribe((data) => {
+    let tmpmethod: Tipos;
+    let tmpendpoint: String = 'products';
+    if (this.model.idproducts > 0) {
+      tmpmethod = Tipos.PUT
+      tmpendpoint = `${tmpendpoint}/${this.model.idproducts}`
+    } else {
+      tmpmethod = Tipos.POST
+    }
+
+    this.service.Make(tmpendpoint, tmpmethod, this.model).subscribe((data) => {
       if (data.response) {
         console.dir(data);
       }
