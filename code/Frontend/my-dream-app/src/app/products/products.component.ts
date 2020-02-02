@@ -19,6 +19,8 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     //model = new Productsmodel();
+    this.getProducts();
+
     this.service.productsData.subscribe(res => {
       this.model = res;
     });
@@ -27,7 +29,6 @@ export class ProductsComponent implements OnInit {
       this.products = res;
     });
 
-    this.getProducts();
   }
 
   onSelect(event, item) {
@@ -41,7 +42,7 @@ export class ProductsComponent implements OnInit {
     this.service.Get('products').subscribe((data) => {
       if (data.response) {
         // this.products = data.result.slice();
-        this.service.changeListProductsData(data);
+        this.service.changeListProductsData(data.result.slice());
       }
     }, (error) => {
       console.dir(error);

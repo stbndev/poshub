@@ -32,7 +32,6 @@ export class AddsetComponent implements OnInit {
   }
 
   onEventSelection(event) {
-    // console.dir(event);
     this.selected = event;
     this.model.idcstatus = event;
   }
@@ -50,6 +49,7 @@ export class AddsetComponent implements OnInit {
     this.service.Make(tmpendpoint, tmpmethod, this.model).subscribe((data) => {
       if (data.response) {
         console.dir(data);
+        this.service.changeListProductsDataAdd(data.result);
       }
     }, (error) => {
       console.dir(error);
