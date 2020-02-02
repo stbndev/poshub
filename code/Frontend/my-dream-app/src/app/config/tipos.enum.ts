@@ -4,3 +4,9 @@ export enum Tipos {
     PATCH = 3,
     DELETE = 4,
 }
+
+export var CSTATUS = [
+    { value: '1', viewValue: 'ACTIVO' },
+    { value: '2', viewValue: 'INACTIVO' },
+    { value: '3', viewValue: 'ELIMINADO' }
+];

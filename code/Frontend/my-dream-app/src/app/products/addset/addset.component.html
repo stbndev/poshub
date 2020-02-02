@@ -10,24 +10,26 @@
             </div>
             <div class="div-column">
                 <mat-form-field>
-                    <input matInput placeholder='idproducts' name='idproducts' [(ngModel)]='model.idproducts'>
+                    <input matInput placeholder='idproducts' [(ngModel)]='model.idproducts'>
                 </mat-form-field>
                 <mat-form-field>
-                    <input matInput placeholder='Nombre' name='name' [(ngModel)]='model.name'>
+                    <input matInput placeholder='Nombre' [(ngModel)]='model.name'>
                 </mat-form-field>
                 <mat-form-field>
                     <input matInput placeholder='Código de Barras o clave' name='barcode' [(ngModel)]='model.barcode'>
                 </mat-form-field>
-                <!-- <mat-form-field>
+
+                <mat-form-field>
                     <input matInput placeholder='Estatus' name='idcstatus' [(ngModel)]='model.idcstatus'>
-                </mat-form-field> -->
+                </mat-form-field>
+
                 <mat-form-field>
                     <mat-label>Estatus Actual</mat-label>
-                    <!-- <mat-select [(ngModel)]='model.idcstatus' (change)="onEventSelection($event.value)"></mat-select> -->
-                    <mat-select [(ngModel)]='model.idcstatus'>
-                      <mat-option *ngFor="let i of liststatus" [value]="i.value">
-                        {{i.viewValue}}
-                      </mat-option>
+                    <!--  (change)="onEventSelection($event.value)-->
+                    <mat-select [(value)]="selected" (selectionChange)="onEventSelection($event.value)" >
+                        <mat-option  *ngFor="let i of liststatus" [value]="i.value">
+                            {{i.viewValue}}
+                        </mat-option>
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field>

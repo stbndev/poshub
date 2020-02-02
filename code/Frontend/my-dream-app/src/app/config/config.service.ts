@@ -3,12 +3,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Tipos } from "./tipos.enum";
-
+import { BehaviorSubject } from "rxjs";
+import { Productsmodel } from "./../models/productsmodel";
 @Injectable({
   providedIn: 'root'
 })
 
 export class ConfigService {
+
+  private productsSource = new BehaviorSubject<Productsmodel>(new Productsmodel(0,'','',0,0,0,0,0,0));
+  private listproductsSource = new BehaviorSubject<Productsmodel[]>([]);
+
+  // private productsSource = new BehaviorSubject<Productsmodel>(null);
+  productsData = this.productsSource.asObservable()
+
 
   constructor(private http: HttpClient) { }
 
@@ -16,11 +24,9 @@ export class ConfigService {
   uriResources = 'http://10.211.55.3/poshubdev/api/';
   // uriResources = 'http://localhost/poshubdev/api/';
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
+  changeProductsData(productsargs: Productsmodel){
+    this.productsSource.next(productsargs);
+  }
 
   private extractData(res: Response) {
     let body = res;
@@ -36,29 +42,6 @@ export class ConfigService {
     return this.http.get(`${this.uriResources}${serviceName}`).pipe(map(this.extractData));
   }
 
-  // Call(serviceName: String, tipo: Tipo, data: any): Observable<any> {
-
-  //   let tmpresponse: any;
-  //   switch (tipo) {
-
-  //     case Tipo.POST:
-  //       tmpresponse = this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
-  //       break;
-
-  //     case Tipo.PUT:
-  //       tmpresponse = this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
-  //       break;
-
-  //     case Tipo.DELETE:
-  //       tmpresponse = this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
-  //       break;
-
-  //     default:
-  //       throw "not found enum tipo";
-  //       break;
-  //   }
-  //   return tmpresponse;
-  // }
 
   Make(serviceName: String, tipo:any, data: any): Observable<any> {
 
