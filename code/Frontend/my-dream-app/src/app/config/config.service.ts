@@ -34,8 +34,6 @@ export class ConfigService {
     this._listproductsSource.next(listproductsargs);
   }
 
-  //TODO
-  // check error in api rest when exist barcode
   changeListProductsDataAdd(productsargs: Productsmodel) {
     let found = this._listproductsSource.getValue().find(element => element.idproducts == productsargs.idproducts);
     if (found) {
@@ -63,10 +61,7 @@ export class ConfigService {
   }
 
   Make(serviceName: String, tipo: any, data: any): Observable<any> {
-
-    //TODO
-    // control exception library
-    // NLOG for typescript
+    
     switch (tipo) {
       case Tipos.POST:
         return this.http.post(`${this.uriResources}${serviceName}`, data).pipe(map(this.extractData));
