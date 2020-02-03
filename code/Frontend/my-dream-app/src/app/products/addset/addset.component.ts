@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Productsmodel } from "./../../models/productsmodel";
 import { Tipos } from "./../../config/tipos.enum";
+import { CSTATUS } from "./../../config/tipos.enum";
 import { ConfigService } from "./../../config/config.service";
 
-export interface CSTATUS {
-  value: string;
-  viewValue: string;
+export class Productsmodel2 {
+  // idproducts: number;
+  // name: String;
+  constructor(public idproducts: number, public name: String) { }
 }
 
 @Component({
@@ -15,22 +17,25 @@ export interface CSTATUS {
 })
 export class AddsetComponent implements OnInit {
   // setup initial
-  model = new Productsmodel();
-
-  liststatus: CSTATUS[] = [
-    {value: '1', viewValue: 'ACTIVO'},
-    {value: '2', viewValue: 'INACTIVO'},
-    {value: '3', viewValue: 'ELIMINADO'}
-  ];
-
+  //model: any ;   
+  model = new Productsmodel(0, '', '', 0, 0, 0, 0, 0, 0);
+  selected = '2';
+  liststatus = CSTATUS;
   constructor(protected service: ConfigService) { }
 
   ngOnInit() {
+    this.service.productsData.subscribe(res => {
+      this.model = res;
+      this.selected = this.model.idcstatus > 0 ? this.model.idcstatus.toString() : '1';
+    });
+
   }
 
-  onEventSelection(event){
-    this.model.idcstatus = event.value
+  onEventSelection(event) {
+    this.selected = event;
+    this.model.idcstatus = event;
   }
+
   onSaveForm() {
     let tmpmethod: Tipos;
     let tmpendpoint: String = 'products';
@@ -44,6 +49,7 @@ export class AddsetComponent implements OnInit {
     this.service.Make(tmpendpoint, tmpmethod, this.model).subscribe((data) => {
       if (data.response) {
         console.dir(data);
+        this.service.changeListProductsDataAdd(data.result);
       }
     }, (error) => {
       console.dir(error);

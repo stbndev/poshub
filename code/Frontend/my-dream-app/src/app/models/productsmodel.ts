@@ -9,13 +9,14 @@ export class Productsmodel {
     // public idproductsentries: number = 0;
     // public quantity: number = 0;
 
-    public idproducts: number = 0;
-    public name: string;
-    public barcode: string;
-    public idcstatus: number;
-    public unitary_price: number;
-    public unitary_cost: number;
-    public existence: number;
-    public idproductsentries: number;
-    public quantity: number;
+    constructor(
+        public idproducts: number,
+        public name: string,
+        public barcode: string,
+        public idcstatus: number,
+        public unitary_price: number,
+        public unitary_cost: number,
+        public existence: number,
+        public idproductsentries: number,
+        public quantity: number) { }
 }

@@ -17,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ProductsAddSetComponent } from './products-add-set/products-add-set.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
@@ -26,17 +25,11 @@ import { FormsModule }   from '@angular/forms';
 import { AddsetComponent } from './products/addset/addset.component';
 import {MatCardModule} from '@angular/material/card';
 
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     MainNavComponent,
-    ProductsAddSetComponent,
     AddsetComponent,
   ],
   imports: [
