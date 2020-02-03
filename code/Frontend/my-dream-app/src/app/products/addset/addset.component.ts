@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ElementRef, Component, OnInit } from '@angular/core';
 import { Productsmodel } from "./../../models/productsmodel";
 import { Tipos } from "./../../config/tipos.enum";
 import { CSTATUS } from "./../../config/tipos.enum";
@@ -21,19 +21,23 @@ export class AddsetComponent implements OnInit {
   model = new Productsmodel(0, '', '', 0, 0, 0, 0, 0, 0);
   selected = '2';
   liststatus = CSTATUS;
-  constructor(protected service: ConfigService) { }
+  imageSrc: any;
 
-  ngOnInit() {
-    this.service.productsData.subscribe(res => {
-      this.model = res;
-      this.selected = this.model.idcstatus > 0 ? this.model.idcstatus.toString() : '1';
-    });
+  constructor(private elementRef: ElementRef, protected service: ConfigService) { }
 
+  onErrorDefaultPic() {
+    this.imageSrc = './../../assets/imgs/defaultimg.jpeg';
   }
 
-  onEventSelection(event) {
-    this.selected = event;
-    this.model.idcstatus = event;
+  onChangeFileUpload(fileInput: any) {
+    // alert('img change sucess');
+    if (fileInput.target.files && fileInput.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = ((e) => {
+        this.imageSrc = e.target['result'];
+      });
+      reader.readAsDataURL(fileInput.target.files[0]);
+    }
   }
 
   onSaveForm() {
@@ -55,5 +59,19 @@ export class AddsetComponent implements OnInit {
       console.dir(error);
     });
   }
+  ngAfterViewInit() {
+    // <input type='text' id='loginInput' #abc/>
+    // this.abc.nativeElement.value
+    // this.elementRef.nativeElement.('fileProductImg').addEventListener('change', this.handleFileSelect.bind(this), false);
+  }
+  ngOnInit() {
+    this.service.productsData.subscribe(res => {
+      this.model = res;
+      this.selected = this.model.idcstatus > 0 ? this.model.idcstatus.toString() : '1';
+    });
+
+  }
+
+
 
 }

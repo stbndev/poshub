@@ -14,60 +14,12 @@
 </div>
 
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <!-- start here another component -->
 
 <products-addset></products-addset>
 <!-- end here another component -->
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-
-
-<!-- <form class='divProducts' #productsForm="ngForm" (ngSubmit)='onSaveForm()'>
-  <mat-form-field>
-    <input matInput placeholder='idproducts' [(ngModel)]='model.idproducts' name='idproducts'>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder='Nombre' [(ngModel)]='model.name' name='name'>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder='Código de Barras o clave' [(ngModel)]='model.barcode' name='barcode'>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder='Estatus' [(ngModel)]='model.idcstatus' name='idcstatus'>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder='Precio' [(ngModel)]='model.unitary_price' name='unitary_price'>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder='Costo' [(ngModel)]='model.unitary_cost' name='unitary_cost'>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder='Existencias' [(ngModel)]='model.existence' name='existence'>
-  </mat-form-field>
-  <button mat-raised-button>OK</button>
-  <button mat-raised-button (click)="onDelete()">DELETE</button>
-
-</form> -->
-
-<!-- <i class='material-icons md-light md-36'>
-  add_to_queue
-  </i>
- <br> 
-<button mat-raised-button color='accent'>Click Me</button> -->
 <mat-grid-list cols='5' rowHeight='100px'>
   <mat-grid-tile *ngFor='let item of products' [colspan]='1' [rowspan]='1' (click)="onSelect($event, item)">
     <!-- -->

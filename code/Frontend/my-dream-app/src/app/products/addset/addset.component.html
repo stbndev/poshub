@@ -4,9 +4,12 @@
     <mat-card-content>
         <div class="div-table-container">
             <div class="div-column">
-                <img src="./../../../assets/imgs/defaultimg.jpeg" alt="img" width="250" height="250">
-                <input type="file" name="file" id="file">
+                <img [src]="imageSrc" (error)="onErrorDefaultPic()" alt="Preview Img" width="250" height="250"
+                    id="productImg">
+                <input type="file" accept="image/*" (change)='onChangeFileUpload($event)' placeholder="Subir Imagen">
                 <input type="button" value="Remover">
+                <output id="list"></output>
+                <br>
             </div>
             <div class="div-column">
                 <mat-form-field>
@@ -26,8 +29,8 @@
                 <mat-form-field>
                     <mat-label>Estatus Actual</mat-label>
                     <!--  (change)="onEventSelection($event.value)-->
-                    <mat-select [(value)]="selected" (selectionChange)="onEventSelection($event.value)" >
-                        <mat-option  *ngFor="let i of liststatus" [value]="i.value">
+                    <mat-select [(value)]="selected" (selectionChange)="onEventSelection($event.value)">
+                        <mat-option *ngFor="let i of liststatus" [value]="i.value">
                             {{i.viewValue}}
                         </mat-option>
                     </mat-select>
