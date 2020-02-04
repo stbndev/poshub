@@ -353,3 +353,4 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/visualstudio
+code/Backend/posservice/.vs/Solution/v16/Server/sqlite3/storage.ide
