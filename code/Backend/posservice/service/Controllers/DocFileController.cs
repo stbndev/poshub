@@ -49,7 +49,7 @@ namespace service.Controllers
             catch (Exception ex)
             {
 
-                result = Request.CreateResponse(HttpStatusCode.Conflict, ex.Message + ex.InnerException.Message);
+                result = Request.CreateResponse(HttpStatusCode.Conflict,  ex.Message);
 
             }
             return result;
