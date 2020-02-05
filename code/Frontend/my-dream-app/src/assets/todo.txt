@@ -1,7 +1,0 @@
-// TODO
-https://appdividend.com/2018/10/03/angular-ngmodel-directive-example-tutorial/
-
-#config.services.ts 
-check error in api rest when exist barcode
-control exception library when not connect to service
-NLOG for typescript
