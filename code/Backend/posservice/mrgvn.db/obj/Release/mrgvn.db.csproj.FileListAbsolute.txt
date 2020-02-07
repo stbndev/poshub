@@ -1,0 +1,11 @@
+C:\GitHub\poshub\code\Backend\posservice\mrgvn.db\bin\Release\mrgvn.db.dll.config
+C:\GitHub\poshub\code\Backend\posservice\mrgvn.db\bin\Release\mrgvn.db.dll
+C:\GitHub\poshub\code\Backend\posservice\mrgvn.db\bin\Release\mrgvn.db.pdb
+C:\GitHub\poshub\code\Backend\posservice\mrgvn.db\bin\Release\EntityFramework.dll
+C:\GitHub\poshub\code\Backend\posservice\mrgvn.db\bin\Release\EntityFramework.SqlServer.dll
+C:\GitHub\poshub\code\Backend\posservice\mrgvn.db\bin\Release\EntityFramework.xml
+C:\GitHub\poshub\code\Backend\posservice\mrgvn.db\bin\Release\EntityFramework.SqlServer.xml
+C:\GitHub\poshub\code\Backend\posservice\mrgvn.db\obj\Release\mrgvn.db.csproj.CopyComplete
+C:\GitHub\poshub\code\Backend\posservice\mrgvn.db\obj\Release\mrgvn.db.dll
+C:\GitHub\poshub\code\Backend\posservice\mrgvn.db\obj\Release\mrgvn.db.pdb
+C:\GitHub\poshub\code\Backend\posservice\mrgvn.db\obj\Release\mrgvn.db.csprojAssemblyReference.cache
